@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <style>
+        #choice {
+            height: 256;
+            width: 256;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius:50px;
+        }
+        .btn-america {
+            background-image: url('https://cdn3.iconfinder.com/data/icons/countries-and-continents/512/America-512.png');
+            background-size: cover;
+        }
+        .btn-asia {
+            background-image: url('https://cdn1.iconfinder.com/data/icons/continents-icons/512/asia-512.png');
+            background-size: cover;
+        }
+        .btn-europe {
+            background-image: url('https://cdn1.iconfinder.com/data/icons/continents-icons/512/europe-512.png');
+            background-size: cover;
+        }
+        .btn-africa {
+            background-image: url('https://cdn1.iconfinder.com/data/icons/continents-icons/512/africa-512.png');
+            background-size: cover;
+        }
+        .btn-oceania {
+            background-image: url('https://cdn1.iconfinder.com/data/icons/continents-icons/512/australia-512.png');
+            background-size: cover;
+        }
+        .btn-world {
+            background-image: url('https://cdn3.iconfinder.com/data/icons/countries-and-continents/512/World-512.png');
+            background-size: cover;
+        }
+
+        @media screen and (max-width: 992px) {
+            #choice {
+                height: 180;
+                width: 180;
+                border: 2px solid rgb(0, 0, 0);
+                border-radius:30px;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            #choice {
+                height: 128;
+                width: 128;
+                border: 2px solid rgb(0, 0, 0);
+                border-radius:20px;
+            }
+        }
+    </style>
+    <title>choix du jeu</title>
+</head>
+<body>
+    <div class="container my-5" id="maps">
+        <h2>Pick one :</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-3">
+                <button type="button" id="choice" class="btn-america btn-outline-success mt-3">
+                    <p class="display-6 fw-bold">America</p>
+                </button>
+            </div>
+            <div class="col-md-4 col-sm-3">
+                <button type="button" id="choice" class="btn-europe btn-outline-success mt-3">
+                    <p class="display-6 fw-bold">Europe</p>
+                </button>
+            </div>
+            <div class="col-md-4 col-sm-3">
+                <button type="button" id="choice" class="btn-asia btn-outline-success mt-3">
+                    <p class="display-6 fw-bold">Asia</p>
+                </button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-3">
+                <button type="button" id="choice" class="btn-world btn-outline-success mt-3">
+                    <p class="display-6 fw-bold">World</p>
+                </button>
+            </div>
+            <div class="col-md-4 col-sm-3">
+                <button type="button" id="choice" class="btn-africa btn-outline-success mt-3">
+                    <p class="display-6 fw-bold">Africa</p>
+                </button>
+            </div>
+            <div class="col-md-4 col-sm-3">
+                <button type="button" id="choice" class="btn-oceania btn-outline-success mt-3">
+                    <p class="display-6 fw-bold">Oceania</p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit" onclick="myFunction()">PLAY</button>
+          </div>
+
+    <script>
+        let obj = document.getElementById("maps");
+        let vari;
+        obj.addEventListener('click',function(event){
+            vari  = event.target.textContent;
+            alert(vari);
+        });
+
+        function myFunction(){
+            prompt("let's play"+vari)
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
