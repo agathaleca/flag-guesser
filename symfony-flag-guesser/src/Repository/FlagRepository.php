@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Flags;
+use App\Entity\Flag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Flags|null find($id, $lockMode = null, $lockVersion = null)
- * @method Flags|null findOneBy(array $criteria, array $orderBy = null)
- * @method Flags[]    findAll()
- * @method Flags[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Flag|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Flag|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Flag[]    findAll()
+ * @method Flag[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FlagsRepository extends ServiceEntityRepository
+class FlagRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Flags::class);
+        parent::__construct($registry, Flag::class);
     }
 
     // /**
-    //  * @return Flags[] Returns an array of Flags objects
+    //  * @return Flag[] Returns an array of Flag objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class FlagsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Flags
+    public function findOneBySomeField($value): ?Flag
     {
         return $this->createQueryBuilder('f')
             ->andWhere('f.exampleField = :val')
