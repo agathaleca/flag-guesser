@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+<h1>Inscription</h1>
+
+    {{ form_start(form) }}
+    <div style="width:50%; background-color:#95A5A6;padding:20px;border-radius:4px 4px 4px 4px;margin-left: auto;margin-right: auto;padding:20px;text-align:left;">
+        <div class="form-group">
+            {{ form_label(form.pseudo) }}
+            {{ form_widget(form.pseudo) }}
+        </div>
+        <br>
+        <div class="form-group">
+            {{ form_label(form.mail) }}
+            {{ form_widget(form.mail) }}
+        </div>
+        <br>
+        <div class="form-group">
+            {{ form_widget(form.password) }}
+        </div>
+        <button class="btn btn-success">Valider</button>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

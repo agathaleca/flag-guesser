@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Classement {% endblock %}
+
+{% block body %}
+
+    <h1>C'est la page des scores !</h1>
+
+    <p> Mais tu n'es pas dedans c'est dommage ça...</p>
+
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active">
+      <th scope="row">PseudoCool1234</th>
+      <td>1000</td>
+    </tr>
+    <tr class="table-active">
+      <th scope="row">xXD4rkXx</th>
+      <td>200</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
