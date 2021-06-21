@@ -61,20 +61,12 @@ class Games
     private $id;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Answers", mappedBy="idGame")
-     */
-    private $idAnswer;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
         $this->iso = new \Doctrine\Common\Collections\ArrayCollection();
         $this->id = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idAnswer = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getIdGame(): ?int
@@ -138,33 +130,6 @@ class Games
     public function removeId(Users $id): self
     {
         $this->id->removeElement($id);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Answers[]
-     */
-    public function getIdAnswer(): Collection
-    {
-        return $this->idAnswer;
-    }
-
-    public function addIdAnswer(Answers $idAnswer): self
-    {
-        if (!$this->idAnswer->contains($idAnswer)) {
-            $this->idAnswer[] = $idAnswer;
-            $idAnswer->addIdGame($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdAnswer(Answers $idAnswer): self
-    {
-        if ($this->idAnswer->removeElement($idAnswer)) {
-            $idAnswer->removeIdGame($this);
-        }
 
         return $this;
     }

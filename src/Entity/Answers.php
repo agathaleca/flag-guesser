@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Answers
  *
- * @ORM\Table(name="answers")
+ * @ORM\Table(name="answers", indexes={@ORM\Index(name="Answers_Games_FK", columns={"id_game"})})
  * @ORM\Entity(repositoryClass="App\Repository\AnswersRepository")
  */
 class Answers
@@ -31,27 +31,21 @@ class Answers
     private $answer;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var int
      *
-     * @ORM\ManyToMany(targetEntity="Games", inversedBy="idAnswer")
-     * @ORM\JoinTable(name="to_the_quiz",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_answer", referencedColumnName="id_answer")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_game", referencedColumnName="id_game")
-     *   }
-     * )
+     * @ORM\Column(name="score_answer", type="integer", nullable=false)
      */
-    private $idGame;
+    private $scoreAnswer;
 
     /**
-     * Constructor
+     * @var \Games
+     *
+     * @ORM\ManyToOne(targetEntity="Games")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_game", referencedColumnName="id_game")
+     * })
      */
-    public function __construct()
-    {
-        $this->idGame = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $idGame;
 
     public function getIdAnswer(): ?int
     {
@@ -70,26 +64,26 @@ class Answers
         return $this;
     }
 
-    /**
-     * @return Collection|Games[]
-     */
-    public function getIdGame(): Collection
+    public function getScoreAnswer(): ?int
     {
-        return $this->idGame;
+        return $this->scoreAnswer;
     }
 
-    public function addIdGame(Games $idGame): self
+    public function setScoreAnswer(int $scoreAnswer): self
     {
-        if (!$this->idGame->contains($idGame)) {
-            $this->idGame[] = $idGame;
-        }
+        $this->scoreAnswer = $scoreAnswer;
 
         return $this;
     }
-
-    public function removeIdGame(Games $idGame): self
+    
+    public function getIdGame(): ?int
     {
-        $this->idGame->removeElement($idGame);
+        return $this->idGame->idGame;
+    }
+
+    public function setIdGame(?Games $idGame): self
+    {
+        $this->idGame = $idGame;
 
         return $this;
     }

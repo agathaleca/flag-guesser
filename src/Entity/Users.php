@@ -2,16 +2,18 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
+
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Users
- *
+ * 
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
+ * @UniqueEntity("pseudo")
  */
 class Users
 {
@@ -26,7 +28,7 @@ class Users
 
     /**
      * @var string
-     * @Assert\Unique
+     *
      * @ORM\Column(name="pseudo", type="string", length=50, nullable=false, unique=true)
      */
     private $pseudo;
@@ -34,7 +36,7 @@ class Users
     /**
      * @var string
      *
-     * @ORM\Column(name="Mail", type="string", length=50, nullable=false, unique=true)
+     * @ORM\Column(name="Mail", type="string", length=50, nullable=false)
      */
     private $mail;
 
