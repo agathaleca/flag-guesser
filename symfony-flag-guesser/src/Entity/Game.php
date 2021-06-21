@@ -20,11 +20,6 @@ class Game
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_game;
-
-    /**
      * @ORM\Column(type="string", length=50)
      */
     private $category;
@@ -52,18 +47,6 @@ class Game
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdGame(): ?int
-    {
-        return $this->id_game;
-    }
-
-    public function setIdGame(int $id_game): self
-    {
-        $this->id_game = $id_game;
-
-        return $this;
     }
 
     public function getCategory(): ?string

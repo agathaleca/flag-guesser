@@ -18,11 +18,6 @@ class Question
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_question;
-
-    /**
      * @ORM\Column(type="smallint")
      */
     private $asked;
@@ -57,18 +52,6 @@ class Question
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdQuestion(): ?int
-    {
-        return $this->id_question;
-    }
-
-    public function setIdQuestion(int $id_question): self
-    {
-        $this->id_question = $id_question;
-
-        return $this;
     }
 
     public function getAsked(): ?int
