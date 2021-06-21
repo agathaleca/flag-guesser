@@ -56,9 +56,10 @@ CREATE TABLE Answers(
 #------------------------------------------------------------
 
 CREATE TABLE is_in_quiz(
-        id_game Int NOT NULL ,
-        ISO     Varchar (10) NOT NULL ,
-        asked   Bool NOT NULL
+        id_game    Int NOT NULL ,
+        ISO        Varchar (10) NOT NULL ,
+        asked      Bool NOT NULL ,
+        time_asked Datetime NOT NULL
 	,CONSTRAINT is_in_quiz_PK PRIMARY KEY (id_game,ISO)
 
 	,CONSTRAINT is_in_quiz_Games_FK FOREIGN KEY (id_game) REFERENCES Games(id_game)
