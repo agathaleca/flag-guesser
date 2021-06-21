@@ -21,11 +21,12 @@ CREATE TABLE Flags(
 #------------------------------------------------------------
 
 CREATE TABLE Users(
+        id         Int NOT NULL ,
         pseudo     Varchar (50) NOT NULL ,
         Mail       Varchar (50) NOT NULL ,
         Password   Varchar (50) NOT NULL ,
         created_on Datetime NOT NULL
-	,CONSTRAINT Users_PK PRIMARY KEY (pseudo)
+	,CONSTRAINT Users_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
 
@@ -59,7 +60,7 @@ CREATE TABLE is_in_quiz(
         id_game    Int NOT NULL ,
         ISO        Varchar (10) NOT NULL ,
         asked      Bool NOT NULL ,
-        time_asked Datetime NOT NULL
+        time_asked Datetime
 	,CONSTRAINT is_in_quiz_PK PRIMARY KEY (id_game,ISO)
 
 	,CONSTRAINT is_in_quiz_Games_FK FOREIGN KEY (id_game) REFERENCES Games(id_game)
@@ -73,12 +74,12 @@ CREATE TABLE is_in_quiz(
 
 CREATE TABLE plays(
         id_game Int NOT NULL ,
-        pseudo  Varchar (50) NOT NULL ,
+        id      Int NOT NULL ,
         date    Datetime NOT NULL
-	,CONSTRAINT plays_PK PRIMARY KEY (id_game,pseudo)
+	,CONSTRAINT plays_PK PRIMARY KEY (id_game,id)
 
 	,CONSTRAINT plays_Games_FK FOREIGN KEY (id_game) REFERENCES Games(id_game)
-	,CONSTRAINT plays_Users0_FK FOREIGN KEY (pseudo) REFERENCES Users(pseudo)
+	,CONSTRAINT plays_Users0_FK FOREIGN KEY (id) REFERENCES Users(id)
 )ENGINE=InnoDB;
 
 
