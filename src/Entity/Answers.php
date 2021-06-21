@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -75,10 +73,10 @@ class Answers
 
         return $this;
     }
-    
-    public function getIdGame(): ?int
+
+    public function getIdGame(): ?Games
     {
-        return $this->idGame->idGame;
+        return $this->idGame;
     }
 
     public function setIdGame(?Games $idGame): self
@@ -87,5 +85,6 @@ class Answers
 
         return $this;
     }
+
 
 }

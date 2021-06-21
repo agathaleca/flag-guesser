@@ -2,15 +2,12 @@
 
 namespace App\Entity;
 
-
-use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Users
- * 
+ *
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  * @UniqueEntity("pseudo")
@@ -20,11 +17,11 @@ class Users
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id_user", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $idUser;
 
     /**
      * @var string
@@ -54,24 +51,9 @@ class Users
      */
     private $createdOn;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Games", mappedBy="id")
-     */
-    private $idGame;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function getIdUser(): ?int
     {
-        $this->idGame = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
+        return $this->idUser;
     }
 
     public function getPseudo(): ?string
@@ -122,31 +104,5 @@ class Users
         return $this;
     }
 
-    /**
-     * @return Collection|Games[]
-     */
-    public function getIdGame(): Collection
-    {
-        return $this->idGame;
-    }
-
-    public function addIdGame(Games $idGame): self
-    {
-        if (!$this->idGame->contains($idGame)) {
-            $this->idGame[] = $idGame;
-            $idGame->addId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdGame(Games $idGame): self
-    {
-        if ($this->idGame->removeElement($idGame)) {
-            $idGame->removeId($this);
-        }
-
-        return $this;
-    }
 
 }

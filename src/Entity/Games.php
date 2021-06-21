@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Games
  *
- * @ORM\Table(name="games")
+ * @ORM\Table(name="games", indexes={@ORM\Index(name="Games_Users_FK", columns={"played_by"})})
  * @ORM\Entity(repositoryClass="App\Repository\GamesRepository")
  */
 class Games
@@ -26,9 +26,26 @@ class Games
     /**
      * @var string
      *
-     * @ORM\Column(name="catgory", type="string", length=50, nullable=false)
+     * @ORM\Column(name="category", type="string", length=50, nullable=false)
      */
-    private $catgory;
+    private $category;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="played_on", type="datetime", nullable=true)
+     */
+    private $playedOn;
+
+    /**
+     * @var \Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="played_by", referencedColumnName="id_user")
+     * })
+     */
+    private $playedBy;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -46,27 +63,11 @@ class Games
     private $iso;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Users", inversedBy="idGame")
-     * @ORM\JoinTable(name="plays",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_game", referencedColumnName="id_game")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $id;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
         $this->iso = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->id = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getIdGame(): ?int
@@ -74,14 +75,38 @@ class Games
         return $this->idGame;
     }
 
-    public function getCatgory(): ?string
+    public function getCategory(): ?string
     {
-        return $this->catgory;
+        return $this->category;
     }
 
-    public function setCatgory(string $catgory): self
+    public function setCategory(string $category): self
     {
-        $this->catgory = $catgory;
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getPlayedOn(): ?\DateTimeInterface
+    {
+        return $this->playedOn;
+    }
+
+    public function setPlayedOn(?\DateTimeInterface $playedOn): self
+    {
+        $this->playedOn = $playedOn;
+
+        return $this;
+    }
+
+    public function getPlayedBy(): ?Users
+    {
+        return $this->playedBy;
+    }
+
+    public function setPlayedBy(?Users $playedBy): self
+    {
+        $this->playedBy = $playedBy;
 
         return $this;
     }
@@ -106,30 +131,6 @@ class Games
     public function removeIso(Flags $iso): self
     {
         $this->iso->removeElement($iso);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Users[]
-     */
-    public function getId(): Collection
-    {
-        return $this->id;
-    }
-
-    public function addId(Users $id): self
-    {
-        if (!$this->id->contains($id)) {
-            $this->id[] = $id;
-        }
-
-        return $this;
-    }
-
-    public function removeId(Users $id): self
-    {
-        $this->id->removeElement($id);
 
         return $this;
     }
