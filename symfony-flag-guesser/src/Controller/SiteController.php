@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,8 +41,12 @@ class SiteController extends AbstractController
      * @Route("/scores",name="scores")
      */
     public function scores() {
+        $repo = $this->getDoctrine()->getRepository(User::class);
+        $users = $repo->findAll();
         // le fichier twig qu'on veut afficher
-        return $this->render('site/scores.html.twig');
+        return $this->render('site/scores.html.twig', [
+            "users" => $users
+        ]);
     }
 
     /**

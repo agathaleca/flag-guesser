@@ -16,14 +16,12 @@
     </tr>
   </thead>
   <tbody>
+  {% for user in users %}
     <tr class="table-active">
-      <th scope="row">PseudoCool1234</th>
-      <td>1000</td>
+      <th scope="row">{{ user.pseudo }} </th>
+      <td>Non calculé pour l'instant</td>
     </tr>
-    <tr class="table-active">
-      <th scope="row">xXD4rkXx</th>
-      <td>200</td>
-    </tr>
+  {% endfor %}
   </tbody>
 </table>
 
