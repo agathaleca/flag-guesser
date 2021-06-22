@@ -17,9 +17,5 @@
         <li>Your template at <code><a href="{{ '/home/lucas/Desktop/flag-guesser/symfony-flag-guesser/templates/flag/index.html.twig'|file_link(0) }}">templates/flag/index.html.twig</a></code></li>
     </ul>
 </div>
-<ul>
-{% for flag in flags %}
-    <li>{{flag.getNomFr()}}</li>
-{% endfor %}
-</ul>
+<img src="https://flagcdn.com/256x192/{{ question.getFlag().getIso() }}.png">
 {% endblock %}

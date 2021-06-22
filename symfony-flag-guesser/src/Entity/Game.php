@@ -30,12 +30,12 @@ class Game
     private $played_on;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="games")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="games", cascade={"persist"})
      */
     private $played_by;
 
     /**
-     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="quiz", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="quiz", orphanRemoval=true, cascade={"persist"})
      */
     private $questions;
 
