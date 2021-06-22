@@ -26,15 +26,16 @@ class FlagRepository extends ServiceEntityRepository
     {
         $entityManager = $this->getEntityManager();
 
-        $query = $entityManager->createQuery(
-            'SELECT f
-            FROM App\Entity\Flag f
-            ORDER BY f.id ASC
-            '
-        );
+        // $query = $entityManager->createQuery(
+        //     'SELECT f
+        //     FROM App\Entity\Flag f
+        //     ORDER BY f.id ASC
+        //     '
+        // );
 
         // returns an array of Flags objects
-        return $query->getResult();
+        // return $query->getResult();
+        return $this->findAll();
     }
     // /**
     //  * @return Flag[] Returns an array of Flag objects
