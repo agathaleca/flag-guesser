@@ -19,6 +19,23 @@ class FlagRepository extends ServiceEntityRepository
         parent::__construct($registry, Flag::class);
     }
 
+    /**
+     * @return Flag[]
+     */
+    public function findAllFlagsInContinent(string $cont): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT f
+            FROM App\Entity\Flag f
+            ORDER BY f.id ASC
+            '
+        );
+
+        // returns an array of Flags objects
+        return $query->getResult();
+    }
     // /**
     //  * @return Flag[] Returns an array of Flag objects
     //  */
