@@ -10,13 +10,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class FlagController extends AbstractController
 {
     /**
-     * @Route("/flag", name="flag")
+     * @Route("/flag/{cont}", name="flag")
      */
-    public function index(FlagRepository $flagRepository): Response
+    public function index(FlagRepository $flagRepository, string $cont): Response
     {
         return $this->render('flag/index.html.twig', [
             'controller_name' => 'FlagController',
-            'flags' => $flagRepository->findAllFlagsInContinent("")
+            'flags' => $flagRepository->findAllFlagsInContinent($cont)
         ]);
     }
 }
