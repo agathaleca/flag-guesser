@@ -11,9 +11,13 @@
 <div class="container-sm">
     <div class="row">
         <div class="col-11">
-            <img class="img-fluid" src="https://flagcdn.com/{{ current_question.getFlag().getIso() }}.svg">
+            <img class="img-fluid mb-5" src="https://flagcdn.com/{{ current_question.getFlag().getIso() }}.svg">
+            <form>
+                <input type="text" class="form-control" name="Answer" id="ans" autofocus=true>
+            </form>
+            
         </div>
-        <div class="col-1 fa-2x">
+        <div class="col-1 fs-3">
                 {% for q in questions%}
                     <div class="row-sm">
                     {% if q.getAsked() == 1 %}
