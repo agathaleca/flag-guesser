@@ -39,6 +39,11 @@ class Game
      */
     private $questions;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $score;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -111,6 +116,18 @@ class Game
                 $question->setQuiz(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getScore(): ?int
+    {
+        return $this->score;
+    }
+
+    public function setScore(?int $score): self
+    {
+        $this->score = $score;
 
         return $this;
     }
