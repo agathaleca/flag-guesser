@@ -65,7 +65,19 @@ class GameController extends AbstractController
         //maj bdd
         // à la fin :
         // mettre la prochaine question "non posée" à asked = 1 et time_asked à l'instant présent
-        $current_question = $quiz->passToNextQuestion();
+        
+        $questions_list = $quiz->getQuestions();
+        foreach ($questions_list as $question) {
+            if ($question->getAsked()==0) {
+                // la première question à l'état "non posée" passe à "en cours"
+                // on rempli ses champs en conséquence 
+                $question->setTimeAsked(new \DateTime());
+                $question->setAsked(1);
+                // on s'arrête dés qu'une question "non posée" est trouvée
+                break;
+            }
+        }
+
         $em->flush();
         // retourner la route de la page qui affiche la question avec la nouvelle current question
         return $this->redirectToRoute('game',[
