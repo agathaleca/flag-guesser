@@ -114,4 +114,31 @@ class Game
 
         return $this;
     }
+
+    public function getCurrentQuestion(): ?Question
+    {
+        $current_question=null;
+        $questions_list = $this->getQuestions();
+        foreach ($questions_list as $question) {
+            if ($question->getAsked()==1) {
+                $current_question=$question;
+                return $current_question;
+            }
+        }
+        return null;
+    }
+
+    public function getNextQuestion() : ?Question
+    {
+        $next_question=null;
+        $questions_list = $this->getQuestions();
+        foreach ($questions_list as $question) {
+            if ($question->getAsked()==0) {
+                $next_question=$question;
+                return $next_question;
+            }
+        }
+        return null;
+    }
+
 }

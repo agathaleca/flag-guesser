@@ -41,10 +41,8 @@ class FlagController extends AbstractController
         $first_question->setAsked(1);
         $em->flush();
 
-        return $this->render('flag/index.html.twig', [
-            'controller_name' => 'FlagController',
-            'question' => $first_question,
-            'id_game' => $quiz->getId()
+        return $this->redirectToRoute('game',[
+            'id_game'=>$quiz->getId()
         ]);
     }
 }

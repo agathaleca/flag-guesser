@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container-sm">
+    <div class="row">
+        <div class="col-11">
+            <img class="img-fluid" src="https://flagcdn.com/{{ current_question.getFlag().getIso() }}.svg">
+        </div>
+        <div class="col-1">
+            <ul>
+                {% for q in questions%}
+                    {% if q.getAsked() == 1 %}
+                        <li><svg class="bi bi-clock-fill text-warning" width="100%" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                            </svg></li>
+                    {%elseif q.getScore() > 0%}
+                        <li><svg class="bi bi-check-circle-fill text-success" width="100%" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                        </svg></li>
+
+                    {%else%}
+                        <li><svg class="bi bi-x-circle-fill text-danger" width="100%" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                            </svg></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

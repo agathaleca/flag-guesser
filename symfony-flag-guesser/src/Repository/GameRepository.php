@@ -22,7 +22,19 @@ class GameRepository extends ServiceEntityRepository
     // /**
     //  * @return Game[] Returns an array of Game objects
     //  */
-    /*
+    
+
+    public function findGameById($id) : ?Game
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    /* 
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('g')
@@ -34,7 +46,7 @@ class GameRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Game
