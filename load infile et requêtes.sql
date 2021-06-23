@@ -1,7 +1,7 @@
 
 
 LOAD data local infile '/home/student/Desktop/flag-guesser/FlagsDATA.csv'
-into table Flags
+into table flag
 fields terminated by ','
 enclosed by '"'
 lines terminated by '\r\n'

@@ -25,7 +25,7 @@ class FlagController extends AbstractController
 
         for ($i = 1; $i <=10 ; $i++)
         {
-            $index = rand(0,count($flags));
+            $index = rand(0,count($flags)-1);
             $question = new Question();
             $question->setFlag($flags[$index]);
             $question->setAsked(0);
