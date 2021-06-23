@@ -128,17 +128,28 @@ class Game
         return null;
     }
 
-    public function getNextQuestion() : ?Question
+    public function passToNextQuestion()
     {
-        $next_question=null;
         $questions_list = $this->getQuestions();
         foreach ($questions_list as $question) {
             if ($question->getAsked()==0) {
-                $next_question=$question;
-                return $next_question;
+                // la première question à l'état "non posée" passe à "en cours"
+                // on rempli ses champs en conséquence 
+                $question->setTimeAsked(new \DateTime());
+                $question->setAsked(1);
+                // on s'arrête dés qu'une question "non posée" est trouvée
+                break;
             }
         }
-        return null;
+    }
+
+    public function getTotalScore() : int
+    {
+        $total_score=0;
+        for ($i=0;$i<count($this->getQuestions());$i++) {
+            $total_score += $this->getQuestions()[$i]->getScore();
+        }
+        return $total_score;
     }
 
 }
