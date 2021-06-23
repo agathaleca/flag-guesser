@@ -8,12 +8,12 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="container-sm">
+<div class="container-md">
     <div class="row">
         <div class="col-11">
             <img class="img-fluid mb-5" src="https://flagcdn.com/{{ current_question.getFlag().getIso() }}.svg">
-            <form class="form-control" id="rep">
-                <input type="text" name="Answer" id="ans" autofocus=true>
+            <form id="rep">
+                <input class="form-control" type="text" name="Answer" id="ans" autofocus=true>
             </form>
             
         </div>
@@ -25,10 +25,10 @@
                     {%elseif q.getScore() > 0%}
                         <i class="fas fa-check-circle fa-fw text-success"></i>
 
-                    {%elseif q.getScore() == 0 %}
-                        <i class="fas fa-times-circle fa-fw text-danger"></i>
-                    {%else%}
+                    {%elseif q.getAsked() == 0 %}
                         <i class="fas fa-dot-circle fa-fw text-secondary"></i>
+                    {%else%}
+                        <i class="fas fa-times-circle fa-fw text-danger"></i>
                     {% endif %}
                     </div>
                 {% endfor %}
@@ -46,7 +46,6 @@
         var route = "/question/{id_game}/{ans_player}";
         route = route.replace("{id_game}",{{id_game}});
         route = route.replace("{ans_player}",answer);
-        alert(route);
         window.location.replace(route);
     });
 </script>

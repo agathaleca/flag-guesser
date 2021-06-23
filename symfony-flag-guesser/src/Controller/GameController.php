@@ -21,7 +21,48 @@ class GameController extends AbstractController
         $quiz =  $gameRepository->findGameById($id_game);
         $current_question = $quiz->getCurrentQuestion();
         // si la réponse est la bonne 
-        if ($current_question->getFlag()->getNomFr()==$ans_player) {
+        // réponse sans les "-"
+        $true_answer_trans=str_replace(array(
+                '-',' ',
+                'à', 'â', 'ä', 'á', 'ã', 'å',
+                'î', 'ï', 'ì', 'í', 
+                'ô', 'ö', 'ò', 'ó', 'õ', 'ø', 
+                'ù', 'û', 'ü', 'ú', 
+                'é', 'è', 'ê', 'ë', 
+                'ç', 'ÿ', 'ñ'
+            ),
+            array(
+                '_','_',
+                'a', 'a', 'a', 'a', 'a', 'a', 
+                'i', 'i', 'i', 'i', 
+                'o', 'o', 'o', 'o', 'o', 'o', 
+                'u', 'u', 'u', 'u', 
+                'e', 'e', 'e', 'e', 
+                'c', 'y', 'n'
+            ),
+            $current_question->getFlag()->getNomFr()
+        );
+        $ans_player_trans=str_replace(array(
+                '-',' ',
+                'à', 'â', 'ä', 'á', 'ã', 'å',
+                'î', 'ï', 'ì', 'í', 
+                'ô', 'ö', 'ò', 'ó', 'õ', 'ø', 
+                'ù', 'û', 'ü', 'ú', 
+                'é', 'è', 'ê', 'ë', 
+                'ç', 'ÿ', 'ñ'
+            ),
+            array(
+                '_','_',
+                'a', 'a', 'a', 'a', 'a', 'a', 
+                'i', 'i', 'i', 'i', 
+                'o', 'o', 'o', 'o', 'o', 'o', 
+                'u', 'u', 'u', 'u', 
+                'e', 'e', 'e', 'e', 
+                'c', 'y', 'n'
+            ),
+            $ans_player
+        );
+        if (strcasecmp($true_answer_trans,$ans_player_trans)==0) {
             // on stocke la réponse du joueur 
             $current_question->setPlayerAnswer($ans_player);
             $current_question->setTimeAnswered(new \Datetime());
@@ -31,8 +72,8 @@ class GameController extends AbstractController
                 $current_question->setScore(100);
             }
             else {
-                $points=-11/9*$t+15*11/9+1;
-                $current_question->setScore($points*10);
+                $points=max(10,$t*(-90/11)+100+4*(90/11));
+                $current_question->setScore($points);
             }
             // on change le statut de la question à "répondue"
             $current_question->setAsked(2);   
