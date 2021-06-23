@@ -9,8 +9,8 @@
 
     {% for question in question_list %}
 
-        <div style="background-color=grey;border-radius:4px 4px 4px 4px;">
-            <div style="width:30%;margin-left: auto;margin-right: auto;padding:20px;">
+        <div style="background-color:lightblue;border-radius:10px 10px 10px 10px;">
+            <div style="width:30%;margin-left: auto;margin-right: auto;padding:20px;margin-top:10px">
                 <img class="img-fluid" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
             </div>
             <br>
@@ -19,7 +19,7 @@
             Votre réponse : {{ question.getPlayerAnswer() }}
             <br>
             La bonne réponse était : {{ question.getFlag().getNomFr() }}
-            <br>
+            <br><br>
         </div>
     
     {% endfor %}
