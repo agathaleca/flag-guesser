@@ -69,40 +69,36 @@
 
     <div class="container my-5" id="maps">
         <h2>Pick one :</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-3">
-                <button type="button" id="choice" class="btn-america btn-outline-success mt-3">
-                    <p class="display-6 fw-bold">America</p>
-                </button>
-            </div>
-            <div class="col-md-4 col-sm-3">
-                <button type="button" id="choice" class="btn-europe btn-outline-success mt-3">
-                    <p class="display-6 fw-bold">Europe</p>
-                </button>
-            </div>
-            <div class="col-md-4 col-sm-3">
-                <button type="button" id="choice" class="btn-asia btn-outline-success mt-3">
-                    <p class="display-6 fw-bold">Asia</p>
-                </button>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-3">
-                <button type="button" id="choice" class="btn-world btn-outline-success mt-3">
-                    <p class="display-6 fw-bold">World</p>
-                </button>
-            </div>
-            <div class="col-md-4 col-sm-3">
-                <button type="button" id="choice" class="btn-africa btn-outline-success mt-3">
-                    <p class="display-6 fw-bold">Africa</p>
-                </button>
-            </div>
-            <div class="col-md-4 col-sm-3">
-                <button type="button" id="choice" class="btn-oceania btn-outline-success mt-3">
-                    <p class="display-6 fw-bold">Oceania</p>
-                </button>
-            </div>
-        </div>
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"></div>
+    <div class="btn-group me-2" role="group" aria-label="First group">
+        <input type="checkbox" class="btn-check" id="btncheck1" name="Amérique" autocomplete="off">
+        <label class="btn-america  btn-outline-primary" id='choice' for="btncheck1">
+            <p class="display-6 fw-bold" id='continent'>America</p>
+        </label>
+        <input type="checkbox" class="btn-check" id="btncheck2" name="Europe" autocomplete="off">
+        <label class="btn-europe  btn-outline-primary" id='choice' for="btncheck2">
+            <p class="display-6 fw-bold" id='continent'>Europe</p>
+        </label>
+        <input type="checkbox" class="btn-check" id="btncheck3" name="Asia" autocomplete="off">
+        <label class="btn-asia  btn-outline-primary" id='choice' for="btncheck3">
+            <p class="display-6 fw-bold" id='continent'>Asia</p>
+        </label>
+    </div>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups"></div>
+    <div class="btn-group" role="group" aria-label="First group">
+        <input type="checkbox" class="btn-check" id="btncheck4" name="World" autocomplete="off">
+        <label class="btn-world  btn-outline-primary" id='choice' id='world' for="btncheck4">
+            <p class="display-6 fw-bold" id='continent'>World</p>
+        </label>
+        <input type="checkbox" class="btn-check" id="btncheck5" name="Africa" autocomplete="off">
+        <label class="btn-africa  btn-outline-primary" id='choice' for="btncheck5">
+            <p class="display-6 fw-bold" id='continent'>Africa</p>
+        </label>
+        <input type="checkbox" class="btn-check" id="btncheck6" name="Oceania" autocomplete="off">
+        <label class="btn-oceania  btn-outline-primary" id='choice' for="btncheck6">
+            <p class="display-6 fw-bold" id='continent'>Oceania</p>
+        </label>
+    </div>        
     </div>
 
         <div class="d-grid gap-2 col-6 mx-auto">
@@ -110,15 +106,44 @@
           </div>
 
     <script>
-        let obj = document.getElementById("maps");
-        let vari;
-        obj.addEventListener('click',function(event){
-            vari  = event.target.textContent;
-            alert(vari);
-        });
-
+        const btn = document.querySelector('#btncheck4');
+        btn.onclick = checkAll;
+        function check(checked = true) {
+            const cbs = document.querySelectorAll('input[class="btn-check"]');
+            cbs.forEach((cb) => {
+                cb.checked = checked;
+            });
+        }
+        function checkAll() {
+            check();
+            // reassign click event handler
+            this.onclick = uncheckAll;
+        }
+        function uncheckAll() {
+            check(false);
+            // reassign click event handler
+            this.onclick = checkAll;
+        }
         function myFunction(){
-            prompt("let's play"+vari)
+            var checkedBoxes = getCheckedBoxes();
+            var route = "../flag/";
+            route = route.concat(checkedBoxes);
+            window.location.replace(route);
+        };
+
+        function getCheckedBoxes() {
+            var checkboxes = document.querySelectorAll('input[class="btn-check"]');
+            var checkboxesChecked = "";
+            // loop over them all
+            for (var i=0; i<checkboxes.length; i++) {
+                // And stick the checked ones onto an array...
+                if (checkboxes[i].checked) {
+                    checkboxesChecked = checkboxesChecked.concat(checkboxes[i].name);
+                    checkboxesChecked = checkboxesChecked.concat("-");
+                }
+            }
+            // Return the array if it is non-empty, or null
+            return checkboxesChecked.length > 0 ? checkboxesChecked : null;
         }
 
     </script>
