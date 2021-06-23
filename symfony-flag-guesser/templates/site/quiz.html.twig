@@ -40,10 +40,10 @@
             background-image: url('https://cdn1.iconfinder.com/data/icons/continents-icons/512/australia-512.png');
             background-size: cover;
         }
-        .btn-world {
-            background-image: url('https://cdn3.iconfinder.com/data/icons/countries-and-continents/512/World-512.png');
+        .btn-us {
+            background-image: url('https://cdn3.iconfinder.com/data/icons/us-states/512/USA-256.png');
             background-size: cover;
-        }
+        }        
 
         @media screen and (max-width: 992px) {
             #choice {
@@ -68,45 +68,48 @@
     <h1>C'est la page de quiz !</h1>
 
     <div class="container my-5" id="maps">
-        <h2>Pick one :</h2>
-    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"></div>
+        <h2 class='display-4'>Choose at least one map</h2>
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">yo</div>
     <div class="btn-group me-2" role="group" aria-label="First group">
         <input type="checkbox" class="btn-check" id="btncheck1" name="Amérique" autocomplete="off">
-        <label class="btn-america  btn-outline-primary" id='choice' for="btncheck1">
+        <label class="btn-america  btn-outline-success" id='choice' for="btncheck1">
             <p class="display-6 fw-bold" id='continent'>America</p>
         </label>
         <input type="checkbox" class="btn-check" id="btncheck2" name="Europe" autocomplete="off">
-        <label class="btn-europe  btn-outline-primary" id='choice' for="btncheck2">
+        <label class="btn-europe  btn-outline-success" id='choice' for="btncheck2">
             <p class="display-6 fw-bold" id='continent'>Europe</p>
         </label>
         <input type="checkbox" class="btn-check" id="btncheck3" name="Asia" autocomplete="off">
-        <label class="btn-asia  btn-outline-primary" id='choice' for="btncheck3">
+        <label class="btn-asia  btn-outline-success" id='choice' for="btncheck3">
             <p class="display-6 fw-bold" id='continent'>Asia</p>
         </label>
     </div>
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups"></div>
     <div class="btn-group" role="group" aria-label="First group">
-        <input type="checkbox" class="btn-check" id="btncheck4" name="World" autocomplete="off">
-        <label class="btn-world  btn-outline-primary" id='choice' id='world' for="btncheck4">
-            <p class="display-6 fw-bold" id='continent'>World</p>
+        <input type="checkbox" class="btn-check" id="btncheck4" name="US States" autocomplete="off">
+        <label class="btn-us  btn-outline-success" id='choice' id='us states' for="btncheck4">
+            <p class="display-6 fw-bold" id='continent'>US States</p>
         </label>
         <input type="checkbox" class="btn-check" id="btncheck5" name="Africa" autocomplete="off">
-        <label class="btn-africa  btn-outline-primary" id='choice' for="btncheck5">
+        <label class="btn-africa  btn-outline-success" id='choice' for="btncheck5">
             <p class="display-6 fw-bold" id='continent'>Africa</p>
         </label>
         <input type="checkbox" class="btn-check" id="btncheck6" name="Oceania" autocomplete="off">
-        <label class="btn-oceania  btn-outline-primary" id='choice' for="btncheck6">
+        <label class="btn-oceania  btn-outline-success" id='choice' for="btncheck6">
             <p class="display-6 fw-bold" id='continent'>Oceania</p>
         </label>
     </div>        
     </div>
 
-        <div class="d-grid gap-2 col-6 mx-auto">
+    <button type="button" class="btn btn-info" id='world'>Tout sélectionner</button>
+    <br><br>
+        
+    <div class="d-grid gap-2 col-6 mx-auto">
             <button class="btn btn-primary" type="submit" onclick="myFunction()">PLAY</button>
-          </div>
+    </div>
 
     <script>
-        const btn = document.querySelector('#btncheck4');
+        const btn = document.querySelector('#world');
         btn.onclick = checkAll;
         function check(checked = true) {
             const cbs = document.querySelectorAll('input[class="btn-check"]');
