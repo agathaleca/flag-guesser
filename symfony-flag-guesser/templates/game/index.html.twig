@@ -25,7 +25,7 @@
                     {%elseif q.getScore() > 0%}
                         <i class="fas fa-check-circle fa-fw text-success"></i>
 
-                    {%elseif q.getScore() != null %}
+                    {%elseif q.getScore() == 0 %}
                         <i class="fas fa-times-circle fa-fw text-danger"></i>
                     {%else%}
                         <i class="fas fa-dot-circle fa-fw text-secondary"></i>
