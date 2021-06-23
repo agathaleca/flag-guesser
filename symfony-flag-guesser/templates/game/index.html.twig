@@ -13,25 +13,21 @@
         <div class="col-11">
             <img class="img-fluid" src="https://flagcdn.com/{{ current_question.getFlag().getIso() }}.svg">
         </div>
-        <div class="col-1">
-            <ul>
+        <div class="col-1 fa-2x">
                 {% for q in questions%}
+                    <div class="row-sm">
                     {% if q.getAsked() == 1 %}
-                        <li><svg class="bi bi-clock-fill text-warning" width="100%" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
-                            </svg></li>
+                        <i class="fas fa-stopwatch fa-fw text-warning" width=300></i>
                     {%elseif q.getScore() > 0%}
-                        <li><svg class="bi bi-check-circle-fill text-success" width="100%" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                        </svg></li>
+                        <i class="fas fa-check-circle fa-fw text-success"></i>
 
+                    {%elseif q.getScore() != null %}
+                        <i class="fas fa-times-circle fa-fw text-danger"></i>
                     {%else%}
-                        <li><svg class="bi bi-x-circle-fill text-danger" width="100%" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
-                            </svg></li>
+                        <i class="fas fa-dot-circle fa-fw text-secondary"></i>
                     {% endif %}
+                    </div>
                 {% endfor %}
-            </ul>
         </div>
     </div>
 </div>
