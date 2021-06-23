@@ -3,25 +3,20 @@
 {% block title %}Recap{% endblock %}
 
 {% block body %}
-
-    <h1>Résultats du quiz #{{ id_game }}</h1>
-    <h2><b>Score : {{ game_score }}</b></h2>
-
-    {% for question in question_list %}
-
-        <div style="background-color:lightblue;border-radius:10px 10px 10px 10px;">
-            <div style="width:30%;margin-left: auto;margin-right: auto;padding:20px;margin-top:10px">
-                <img class="img-fluid" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-7">
+                    <h1>Résultats du quiz #{{ id_game }}</h1>
+                    <h2 class="fw-bolder">Score : {{ game_score }}</h2>
             </div>
-            <br>
-            <h2>Score : {{ question.getScore() }}</h2>
-            <br>
-            Votre réponse : {{ question.getPlayerAnswer() }}
-            <br>
-            La bonne réponse était : {{ question.getFlag().getNomFr() }}
-            <br><br>
+            <div class="col-5">
+                <div class="overflow-auto" style="max-height: 500px;">
+                        {% for question in question_list %}
+                        <div class="b"></div>
+                        {% endfor %}
+                </div>
+            </div>
         </div>
-    
-    {% endfor %}
+    </div>
 
 {% endblock %}
