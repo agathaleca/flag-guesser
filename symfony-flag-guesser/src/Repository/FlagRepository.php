@@ -32,11 +32,6 @@ class FlagRepository extends ServiceEntityRepository
             $where .= "f.category='$continent' OR ";
         }
         $where .= '1=0 ';
-        
-        print('SELECT f
-        FROM App\Entity\Flag f' .
-        $where . 
-        'ORDER BY f.id ASC');
 
         $query = $entityManager->createQuery(
             'SELECT f
