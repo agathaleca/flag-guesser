@@ -18,11 +18,32 @@ class GameController extends AbstractController
         $quiz =  $gameRepository->findGameById($id_game);
 
         if ($quiz==null) {
-            return $this->render('game/error.html.twig');
+            return $this->render('game/errorNoQuizz.html.twig');
+        }
+
+        $current_question = $quiz->getCurrentQuestion();
+
+        if ($current_question==null) {
+            return $this->render('game/errorNoCurrent.html.twig');
         }
 
         return $this->render('game/index.html.twig', [
             'controller_name' => 'GameController',
+            'questions' => $quiz->getQuestions(),
+            'current_question' => $current_question
         ]);
+    }
+
+    /**
+     * @Route 
+     */
+    public function checkQuestion(GameRepository $gameRepository,$ans_player,$id_game) : Response
+    {
+        $quiz =  $gameRepository->findGameById($id_game);
+
+        // si la réponse est la bonne 
+        if ($quiz->getCurrentQuestion()->getFlag()->getNomFr()==$ans_player) {
+            
+        }
     }
 }

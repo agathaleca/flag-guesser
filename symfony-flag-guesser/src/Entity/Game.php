@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Question;
 use App\Repository\GameRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -114,4 +115,17 @@ class Game
 
         return $this;
     }
+
+    public function getCurrentQuestion(): ?Question
+    {
+        $current_question=null;
+        $questions_list = $this->questions;
+        foreach ($questions_list as $question) {
+            if ($question->adked==1) {
+                $current_question=$question;
+            }
+        }
+        return $current_question;
+    }
+
 }

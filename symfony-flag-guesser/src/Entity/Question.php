@@ -125,4 +125,12 @@ class Question
 
         return $this;
     }
+
+    public function updateTimeAnswered()
+    {
+        $current_time = new \DateTime();
+        $diff = $current_time->diff($this->time_asked);
+        $this->time_answered = $diff->s;
+    }
+
 }
