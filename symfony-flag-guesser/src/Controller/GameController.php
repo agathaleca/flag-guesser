@@ -24,7 +24,7 @@ class GameController extends AbstractController
         $current_question = $quiz->getCurrentQuestion();
 
         if ($current_question==null) {
-            return $this->render('game/errorNoCurrent.html.twig');
+            return $this->render('game/recap.html.twig');
         }
 
         return $this->render('game/index.html.twig', [
@@ -41,6 +41,9 @@ class GameController extends AbstractController
     
     public function checkQuestion(GameRepository $gameRepository,string $ans_player,int $id_game) : Response
     {
+        // manager
+        $em = $this->getDoctrine()->getManager();
+
         $quiz =  $gameRepository->findGameById($id_game);
         $current_question = $quiz->getCurrentQuestion();
         // si la réponse est la bonne 
@@ -57,15 +60,15 @@ class GameController extends AbstractController
                 $current_question->setScore($current_question->getScore()+$points);
             }
             // on change le statut de la question à "répondue"
-            $current_question->setAsked(2);            
+            $current_question->setAsked(2);   
         }
         else {
             // mauvaise réponse + temps pas écoulé
             if ($current_question->getTimeAnswered()<15) {
+                // maj de la bdd
                 // on retourne la page avec la question actuelle (inchangée) pour retry
-                return $this->render('game/index.html.twig',[
-                    'controller_name' => 'GameController',
-                    'current_question' => $current_question
+                return $this->redirectToRoute('game',[
+                    'id_game'=>$quiz->getId()
                 ]);
             }
             // mauvaise réponse + temps écoulé
@@ -78,16 +81,15 @@ class GameController extends AbstractController
                 $current_question->setAsked(2);
             }
         }
-
+        //maj bdd
         // à la fin :
-        // mettre la question d'après à asked = 1
-        $current_question = $quiz->getNextQuestion();
-        // mettre sa time_asked à l'instant présent
-        $current_question->setTimeAsked(new \DateTime());
+        // mettre la prochaine question "non posée" à asked = 1 et time_asked à l'instant présent
+        $current_question = $quiz->passToNextQuestion();
+        $em->flush();
         // retourner la route de la page qui affiche la question avec la nouvelle current question
-        return $this->render('game/index.html.twig',[
-            'controller_name' => 'GameController',
-            'current_question' => $current_question
+        return $this->redirectToRoute('game',[
+            'id_game'=>$quiz->getId()
         ]);
+
     }
 }
