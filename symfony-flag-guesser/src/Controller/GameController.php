@@ -18,13 +18,16 @@ class GameController extends AbstractController
         $quiz =  $gameRepository->findGameById($id_game);
 
         if ($quiz==null) {
-            return $this->render('game/errorNoQuizz.html.twig');
+            return $this->render('game/noQuizError.html.twig');
         }
 
         $current_question = $quiz->getCurrentQuestion();
 
         if ($current_question==null) {
-            return $this->render('game/recap.html.twig');
+            return $this->render('game/recap.html.twig', [
+                "question_list" => $quiz->getQuestions(),
+                "game_score" => $quiz->getTotalScore()
+            ]);
         }
 
         return $this->render('game/index.html.twig', [
@@ -92,4 +95,5 @@ class GameController extends AbstractController
         ]);
 
     }
+
 }

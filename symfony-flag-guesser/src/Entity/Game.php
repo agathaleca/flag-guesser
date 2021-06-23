@@ -143,4 +143,13 @@ class Game
         }
     }
 
+    public function getTotalScore() : int
+    {
+        $total_score=0;
+        for ($i=0;$i<count($this->getQuestions());$i++) {
+            $total_score += $this->getQuestions()[$i]->getScore();
+        }
+        return $total_score;
+    }
+
 }
