@@ -1,0 +1,305 @@
+﻿id,ISO,en,fr,region
+1,ad,Andorra,Andorre,Europe
+2,ae,United Arab Emirates,Émirats arabes unis,Asie
+3,af,Afghanistan,Afghanistan,Asie
+4,ag,Antigua and Barbuda,Antigua-et-Barbuda,Amérique
+5,ai,Anguilla,Anguilla,Amérique
+6,al,Albania,Albanie,Europe
+7,am,Armenia,Arménie,Asie
+8,ao,Angola,Angola,Afrique
+9,aq,Antarctica,Antarctique,Other
+10,ar,Argentina,Argentine,Amérique
+11,as,American Samoa,Samoa américaines,Océanie
+12,at,Austria,Autriche,Europe
+13,au,Australia,Australie,Océanie
+14,aw,Aruba,Aruba,Océanie
+15,ax,Åland Islands,Åland,Europe
+16,az,Azerbaijan,Azerbaïdjan,Asie
+17,ba,Bosnia and Herzegovina,Bosnie-Herzégovine,Europe
+18,bb,Barbados,Barbade,Amérique
+19,bd,Bangladesh,Bangladesh,Asie
+20,be,Belgium,Belgique,Europe
+21,bf,Burkina Faso,Burkina Faso,Afrique
+22,bg,Bulgaria,Bulgarie,Europe
+23,bh,Bahrain,Bahreïn,Asie
+24,bi,Burundi,Burundi,Afrique
+25,bj,Benin,Bénin,Afrique
+26,bl,Saint Barthélemy,Saint-Barthélemy,Amérique
+27,bm,Bermuda,Bermudes,Amérique
+28,bn,Brunei,Brunei,Asie
+29,bo,Bolivia,Bolivie,Amérique
+30,bq,Caribbean Netherlands,Pays-Bas caribéens,Amérique
+31,br,Brazil,Brésil,Amérique
+32,bs,Bahamas,Bahamas,Amérique
+33,bt,Bhutan,Bhoutan,Asie
+34,bv,Bouvet Island,Île Bouvet,Other
+35,bw,Botswana,Botswana,Afrique
+36,by,Belarus,Biélorussie,Europe
+37,bz,Belize,Belize,Amérique
+38,ca,Canada,Canada,Amérique
+39,cc,Cocos (Keeling) Islands,Îles Cocos,Océanie
+40,cd,Congo,Congo,Afrique
+41,cf,Central African Republic,République centrafricaine,Afrique
+42,cg,Republic of the Congo,Congo,Afrique
+43,ch,Switzerland,Suisse,Europe
+44,ci,Côte d'Ivoire,Côte d'Ivoire,Afrique
+45,ck,Cook Islands,Îles Cook,Océanie
+46,cl,Chile,Chili,Amérique
+47,cm,Cameroon,Cameroun,Afrique
+48,cn,China,Chine,Asie
+49,co,Colombia,Colombie,Amérique
+50,cr,Costa Rica,Costa Rica,Amérique
+51,cu,Cuba,Cuba,Amérique
+52,cv,Cape Verde,Cap-Vert,Afrique
+53,cw,Curaçao,Curaçao,Amérique
+54,cx,Christmas Island,Île Christmas,Océanie
+55,cy,Cyprus,Chypre,Asie
+56,cz,Czechia,République Tchèque,Europe
+57,de,Germany,Allemagne,Europe
+58,dj,Djibouti,Djibouti,Afrique
+59,dk,Denmark,Danemark,Europe
+60,dm,Dominica,Dominique,Amérique
+61,do,Dominican Republic,République dominicaine,Amérique
+62,dz,Algeria,Algérie,Afrique
+63,ec,Ecuador,Équateur,Amérique
+64,ee,Estonia,Estonie,Europe
+65,eg,Egypt,Égypte,Afrique
+66,eh,Western Sahara,Sahara Occidental,Afrique
+67,er,Eritrea,Érythrée,Afrique
+68,es,Spain,Espagne,Europe
+69,et,Ethiopia,Éthiopie,Afrique
+70,eu,European Union,Union européenne,Other
+71,fi,Finland,Finlande,Europe
+72,fj,Fiji,Fidji,Océanie
+73,fk,Falkland Islands,Îles Malouines,Amérique
+74,fm,Micronesia,Micronésie,Océanie
+75,fo,Faroe Islands,Îles Féroé,Europe
+76,fr,France,France,Europe
+77,ga,Gabon,Gabon,Afrique
+78,gb,United Kingdom,Royaume-Uni,Other
+79,gb-eng,England,Angleterre,Europe
+80,gb-nir,Northern Ireland,Irlande du Nord,Europe
+81,gb-sct,Scotland,Écosse,Europe
+82,gb-wls,Wales,Pays de Galles,Europe
+83,gd,Grenada,Grenade,Amérique
+84,ge,Georgia,Géorgie,Asie
+85,gf,French Guiana,Guyane,Amérique
+86,gg,Guernsey,Guernesey,Europe
+87,gh,Ghana,Ghana,Afrique
+88,gi,Gibraltar,Gibraltar,Europe
+89,gl,Greenland,Groenland,Amérique
+90,gm,Gambia,Gambie,Afrique
+91,gn,Guinea,Guinée,Afrique
+92,gp,Guadeloupe,Guadeloupe,Amérique
+93,gq,Equatorial Guinea,Guinée équatoriale,Afrique
+94,gr,Greece,Grèce,Europe
+95,gs,South Georgia,Géorgie du Sud,Asie
+96,gt,Guatemala,Guatemala,Amérique
+97,gu,Guam,Guam,Asie
+98,gw,Guinea-Bissau,Guinée-Bissau,Afrique
+99,gy,Guyana,Guyana,Amérique
+100,hk,Hong Kong,Hong Kong,Asie
+101,hm,Heard Island and McDonald Islands,Îles Heard-et-MacDonald,Other
+102,hn,Honduras,Honduras,Amérique
+103,hr,Croatia,Croatie,Europe
+104,ht,Haiti,Haïti,Amérique
+105,hu,Hungary,Hongrie,Europe
+106,id,Indonesia,Indonésie,Asie
+107,ie,Ireland,Irlande,Europe
+108,il,Israel,Israël,Asie
+109,im,Isle of Man,Île de Man,Europe
+110,in,India,Inde,Asie
+111,io,British Indian Ocean Territory,Territoire britannique de l'océan Indien,Asie
+112,iq,Iraq,Irak,Asie
+113,ir,Iran,Iran,Asie
+114,is,Iceland,Islande,Europe
+115,it,Italy,Italie,Europe
+116,je,Jersey,Jersey,Europe
+117,jm,Jamaica,Jamaïque,Amérique
+118,jo,Jordan,Jordanie,Asie
+119,jp,Japan,Japon,Asie
+120,ke,Kenya,Kenya,Afrique
+121,kg,Kyrgyzstan,Kirghizistan,Asie
+122,kh,Cambodia,Cambodge,Asie
+123,ki,Kiribati,Kiribati,Océanie
+124,km,Comoros,Comores,Afrique
+125,kn,Saint Kitts and Nevis,Saint-Christophe-et-Niévès,Amérique
+126,kp,North Korea,Corée du Nord,Asie
+127,kr,South Korea,Corée du Sud,Asie
+128,kw,Kuwait,Koweït,Asie
+129,ky,Cayman Islands,Îles Caïmans,Amérique
+130,kz,Kazakhstan,Kazakhstan,Asie
+131,la,Laos,Laos,Asie
+132,lb,Lebanon,Liban,Asie
+133,lc,Saint Lucia,Sainte-Lucie,Amérique
+134,li,Liechtenstein,Liechtenstein,Europe
+135,lk,Sri Lanka,Sri Lanka,Asie
+136,lr,Liberia,Liberia,Afrique
+137,ls,Lesotho,Lesotho,Afrique
+138,lt,Lithuania,Lituanie,Europe
+139,lu,Luxembourg,Luxembourg,Europe
+140,lv,Latvia,Lettonie,Europe
+141,ly,Libya,Libye,Asie
+142,ma,Morocco,Maroc,Afrique
+143,mc,Monaco,Monaco,Europe
+144,md,Moldova,Moldavie,Europe
+145,me,Montenegro,Monténégro,Europe
+146,mf,Saint Martin,Saint-Martin,Other
+147,mg,Madagascar,Madagascar,Afrique
+148,mh,Marshall Islands,Îles Marshall,Other
+149,mk,North Macedonia,Macédoine du Nord,Europe
+150,ml,Mali,Mali,Afrique
+151,mm,Myanmar,Birmanie,Asie
+152,mn,Mongolia,Mongolie,Asie
+153,mo,Macau,Macao,Asie
+154,mp,Northern Mariana Islands,Îles Mariannes du Nord,Other
+155,mq,Martinique,Martinique,Amérique
+156,mr,Mauritania,Mauritanie,Afrique
+157,ms,Montserrat,Montserrat,Amérique
+158,mt,Malta,Malte,Europe
+159,mu,Mauritius,Maurice,Afrique
+160,mv,Maldives,Maldives,Asie
+161,mw,Malawi,Malawi,Afrique
+162,mx,Mexico,Mexique,Amérique
+163,my,Malaysia,Malaisie,Asie
+164,mz,Mozambique,Mozambique,Afrique
+165,na,Namibia,Namibie,Afrique
+166,nc,New Caledonia,Nouvelle-Calédonie,Océanie
+167,ne,Niger,Niger,Afrique
+168,nf,Norfolk Island,Île Norfolk,Océanie
+169,ng,Nigeria,Nigeria,Afrique
+170,ni,Nicaragua,Nicaragua,Amérique
+171,nl,Netherlands,Pays-Bas,Europe
+172,no,Norway,Norvège,Europe
+173,np,Nepal,Népal,Asie
+174,nr,Nauru,Nauru,Océanie
+175,nu,Niue,Niue,Océanie
+176,nz,New Zealand,Nouvelle-Zélande,Océanie
+177,om,Oman,Oman,Asie
+178,pa,Panama,Panama,Amérique
+179,pe,Peru,Pérou,Amérique
+180,pf,French Polynesia,Polynésie française,Amérique
+181,pg,Papua New Guinea,Papouasie-Nouvelle-Guinée,Océanie
+182,ph,Philippines,Philippines,Asie
+183,pk,Pakistan,Pakistan,Asie
+184,pl,Poland,Pologne,Europe
+185,pm,Saint Pierre and Miquelon,Saint-Pierre-et-Miquelon,Amérique
+186,pn,Pitcairn Islands,Îles Pitcairn,Other
+187,pr,Puerto Rico,Porto Rico,Amérique
+188,ps,Palestine,Palestine,Asie
+189,pt,Portugal,Portugal,Europe
+190,pw,Palau,Palaos,Océanie
+191,py,Paraguay,Paraguay,Amérique
+192,qa,Qatar,Qatar,Asie
+193,re,Réunion,Réunion,Afrique
+194,ro,Romania,Roumanie,Europe
+195,rs,Serbia,Serbie,Europe
+196,ru,Russia,Russie,Europe
+197,rw,Rwanda,Rwanda,Afrique
+198,sa,Saudi Arabia,Arabie saoudite,Asie
+199,sb,Solomon Islands,Îles Salomon,Océanie
+200,sc,Seychelles,Seychelles,Afrique
+201,sd,Sudan,Soudan,Afrique
+202,se,Sweden,Suède,Europe
+203,sg,Singapore,Singapour,Asie
+204,si,Slovenia,Slovénie,Europe
+205,sj,Svalbard and Jan Mayen,Svalbard et Jan Mayen,Other
+206,sk,Slovakia,Slovaquie,Europe
+207,sl,Sierra Leone,Sierra Leone,Afrique
+208,sm,San Marino,Saint-Marin,Europe
+209,sn,Senegal,Sénégal,Afrique
+210,so,Somalia,Somalie,Afrique
+211,sr,Suriname,Suriname,Amérique
+212,ss,South Sudan,Soudan du Sud,Afrique
+213,st,São Tomé and Príncipe,Sao Tomé-et-Principe,Afrique
+214,sv,El Salvador,Salvador,Amérique
+215,sx,Sint Maarten,Saint-Martin,Other
+216,sy,Syria,Syrie,Asie
+217,sz,Eswatini (Swaziland),Swaziland,Afrique
+218,tc,Turks and Caicos Islands,Îles Turques-et-Caïques,Other
+219,td,Chad,Tchad,Afrique
+220,tf,French Southern and Antarctic Lands,Terres australes et antarctiques françaises,Other
+221,tg,Togo,Togo,Afrique
+222,th,Thailand,Thaïlande,Asie
+223,tj,Tajikistan,Tadjikistan,Asie
+224,tk,Tokelau,Tokelau,Océanie
+225,tl,Timor-Leste,Timor oriental,Océanie
+226,tm,Turkmenistan,Turkménistan,Asie
+227,tn,Tunisia,Tunisie,Afrique
+228,to,Tonga,Tonga,Océanie
+229,tr,Turkey,Turquie,Asie
+230,tt,Trinidad and Tobago,Trinité-et-Tobago,Amérique
+231,tv,Tuvalu,Tuvalu,Océanie
+232,tw,Taiwan,Taïwan,Asie
+233,tz,Tanzania,Tanzanie,Afrique
+234,ua,Ukraine,Ukraine,Europe
+235,ug,Uganda,Ouganda,Afrique
+236,un,United Nations,Organisation des Nations unies,Other
+237,us,United States,États-Unis,Amérique
+238,us-ak,Alaska,Alaska,US States
+239,us-al,Alabama,Alabama,US States
+240,us-ar,Arkansas,Arkansas,US States
+241,us-az,Arizona,Arizona,US States
+242,us-ca,California,Californie,US States
+243,us-co,Colorado,Colorado,US States
+244,us-ct,Connecticut,Connecticut,US States
+245,us-de,Delaware,Delaware,US States
+246,us-fl,Florida,Floride,US States
+247,us-ga,Georgia,Géorgie,US States
+248,us-hi,Hawaii,Hawaï,US States
+249,us-ia,Iowa,Iowa,US States
+250,us-id,Idaho,Idaho,US States
+251,us-il,Illinois,Illinois,US States
+252,us-in,Indiana,Indiana,US States
+253,us-ks,Kansas,Kansas,US States
+254,us-ky,Kentucky,Kentucky,US States
+255,us-la,Louisiana,Louisiane,US States
+256,us-ma,Massachusetts,Massachusetts,US States
+257,us-md,Maryland,Maryland,US States
+258,us-me,Maine,Maine,US States
+259,us-mi,Michigan,Michigan,US States
+260,us-mn,Minnesota,Minnesota,US States
+261,us-mo,Missouri,Missouri,US States
+262,us-ms,Mississippi,Mississippi,US States
+263,us-mt,Montana,Montana,US States
+264,us-nc,North Carolina,Caroline du Nord,US States
+265,us-nd,North Dakota,Dakota du Nord,US States
+266,us-ne,Nebraska,Nebraska,US States
+267,us-nh,New Hampshire,New Hampshire,US States
+268,us-nj,New Jersey,New Jersey,US States
+269,us-nm,New Mexico,Nouveau-Mexique,US States
+270,us-nv,Nevada,Nevada,US States
+271,us-ny,New York,New York,US States
+272,us-oh,Ohio,Ohio,US States
+273,us-ok,Oklahoma,Oklahoma,US States
+274,us-or,Oregon,Oregon,US States
+275,us-pa,Pennsylvania,Pennsylvanie,US States
+276,us-ri,Rhode Island,Rhode Island,US States
+277,us-sc,South Carolina,Caroline du Sud,US States
+278,us-sd,South Dakota,Dakota du Sud,US States
+279,us-tn,Tennessee,Tennessee,US States
+280,us-tx,Texas,Texas,US States
+281,us-ut,Utah,Utah,US States
+282,us-va,Virginia,Virginie,US States
+283,us-vt,Vermont,Vermont,US States
+284,us-wa,Washington,Washington,US States
+285,us-wi,Wisconsin,Wisconsin,US States
+286,us-wv,West Virginia,Virginie-Occidentale,US States
+287,us-wy,Wyoming,Wyoming,US States
+288,uy,Uruguay,Uruguay,Amérique
+289,uz,Uzbekistan,Ouzbékistan,Asie
+290,va,Vatican City,Vatican,Europe
+291,vc,Saint Vincent and the Grenadines,Saint-Vincent-et-les-Grenadines,Amérique
+292,ve,Venezuela,Venezuela,Amérique
+293,vg,British Virgin Islands,Îles Vierges britanniques,Amérique
+294,vi,United States Virgin Islands,Îles Vierges des États-Unis,Amérique
+295,vn,Vietnam,Viêt Nam,Asie
+296,vu,Vanuatu,Vanuatu,Océanie
+297,wf,Wallis and Futuna,Wallis-et-Futuna,Amérique
+298,ws,Samoa,Samoa,Océanie
+299,xk,Kosovo,Kosovo,Afrique
+300,ye,Yemen,Yémen,Asie
+301,yt,Mayotte,Mayotte,Afrique
+302,za,South Africa,Afrique du Sud,Afrique
+303,zm,Zambia,Zambie,Afrique
+304,zw,Zimbabwe,Zimbabwe,Afrique

@@ -1,6 +1,6 @@
 
 
-LOAD data local infile '/home/student/Desktop/flag-guesser/FlagsDATA.csv'
+LOAD data local infile '/home/student/Desktop/flag-guesser/flagsDATAbase.csv'
 into table flag
 fields terminated by ','
 enclosed by '"'
