@@ -4,8 +4,24 @@
 
 {% block body %}
 
-    <h1>Résultats du quiz</h1>
+    <h1>Résultats du quiz #{{ id_game }}</h1>
+    <h2><b>Score : {{ game_score }}</b></h2>
 
-    <p>C'est le recap du quiz</p>
+    {% for question in question_list %}
+
+        <div style="background-color=grey;border-radius:4px 4px 4px 4px;">
+            <div style="width:30%;margin-left: auto;margin-right: auto;padding:20px;">
+                <img class="img-fluid" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
+            </div>
+            <br>
+            <h2>Score : {{ question.getScore() }}</h2>
+            <br>
+            Votre réponse : {{ question.getPlayerAnswer() }}
+            <br>
+            La bonne réponse était : {{ question.getFlag().getNomFr() }}
+            <br>
+        </div>
+    
+    {% endfor %}
 
 {% endblock %}

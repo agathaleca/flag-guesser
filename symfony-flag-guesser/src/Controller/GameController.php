@@ -26,7 +26,8 @@ class GameController extends AbstractController
         if ($current_question==null) {
             return $this->render('game/recap.html.twig', [
                 "question_list" => $quiz->getQuestions(),
-                "game_score" => $quiz->getTotalScore()
+                "game_score" => $quiz->getTotalScore(),
+                "id_game" => $quiz->getId()
             ]);
         }
 
@@ -38,10 +39,11 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route ("/game/{id_game}/{id_question}",name="question")
+     * @Route ("/game/{id_game}/question",name="question")
      */
 
-    
+    // lucas va faire un redirection vers ici avec le bouton "valider la réponse"
+
     public function checkQuestion(GameRepository $gameRepository,string $ans_player,int $id_game) : Response
     {
         // manager
@@ -56,11 +58,11 @@ class GameController extends AbstractController
             $current_question->updateTimeAnswered();
             // on fixe le score de la question 
             if ($current_question->getTimeAnswered()<=4) {
-                $current_question->setScore($current_question->getScore()+10);
+                $current_question->setScore(100);
             }
             else {
                 $points=-11/9*$current_question->getTimeAnswered()+15*11/9+1;
-                $current_question->setScore($current_question->getScore()+$points);
+                $current_question->setScore($points*10);
             }
             // on change le statut de la question à "répondue"
             $current_question->setAsked(2);   
