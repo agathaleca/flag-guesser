@@ -1,10 +1,10 @@
 
 
-LOAD data local infile '/home/student/Desktop/flag-guesser/flags.csv'
+LOAD data local infile '/home/student/Desktop/flag-guesser/FlagsDATA.csv'
 into table Flags
 fields terminated by ','
 enclosed by '"'
-lines terminated by '\n'
+lines terminated by '\r\n'
 ignore 1 rows;
 
 select * from 
