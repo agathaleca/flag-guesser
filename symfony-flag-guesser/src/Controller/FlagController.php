@@ -41,6 +41,8 @@ class FlagController extends AbstractController
         $first_question->setAsked(1);
         $em->flush();
 
-        return $this->redirectToRoute('game/'.$quiz->getId());
+        return $this->redirectToRoute('game',[
+            'id_game'=>$quiz->getId()
+        ]);
     }
 }

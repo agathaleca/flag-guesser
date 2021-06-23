@@ -11,7 +11,7 @@
 <div class="container-sm">
     <div class="row">
         <div class="col-11">
-            <img class="img-fluid" src="https://flagcdn.com/{{ curent_question.getFlag().getIso() }}.svg">
+            <img class="img-fluid" src="https://flagcdn.com/{{ current_question.getFlag().getIso() }}.svg">
         </div>
         <div class="col-1">
             <ul>
@@ -30,6 +30,7 @@
                                 xmlns="http://www.w3.org/2000/svg">
                             </svg></li>
                     {% endif %}
+                {% endfor %}
             </ul>
         </div>
     </div>
