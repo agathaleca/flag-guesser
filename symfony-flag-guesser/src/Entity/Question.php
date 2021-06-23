@@ -49,6 +49,11 @@ class Question
      */
     private $quiz;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $score;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -131,6 +136,18 @@ class Question
         $current_time = new \DateTime();
         $diff = $current_time->diff($this->time_asked);
         $this->time_answered = $diff->s;
+    }
+
+    public function getScore(): ?int
+    {
+        return $this->score;
+    }
+
+    public function setScore(?int $score): self
+    {
+        $this->score = $score;
+
+        return $this;
     }
 
 }
