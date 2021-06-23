@@ -72,8 +72,8 @@ class GameController extends AbstractController
                 $current_question->setScore(100);
             }
             else {
-                $points=-11/9*$t+15*11/9+1;
-                $current_question->setScore($points*10);
+                $points=max(10,$t*(-90/11)+100+4*(90/11));
+                $current_question->setScore($points);
             }
             // on change le statut de la question à "répondue"
             $current_question->setAsked(2);   
