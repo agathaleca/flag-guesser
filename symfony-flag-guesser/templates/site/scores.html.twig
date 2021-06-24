@@ -18,7 +18,7 @@
   <tbody>
   {% for user in users %}
     <tr class="table-active">
-      <th scope="row">{{ user.pseudo }} </th>
+      <th scope="row"><a href="/compte/{{ user.getId() }}">{{ user.pseudo }}</a></th>
       <td>Non calculé pour l'instant</td>
     </tr>
   {% endfor %}

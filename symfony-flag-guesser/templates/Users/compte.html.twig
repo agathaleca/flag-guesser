@@ -4,7 +4,15 @@
 
 {% block body %}
 
-    <h1>{{ app.user.getPseudo() }}</h1>
+    <p style="color:green;">
+    {% if (app.user!=null) and (app.user.getId() == user.getId()) %}
+        C'est votre compte et vous êtes connecté !
+    {% else %}
+        Vous consultez le profile de quelqu'un d'autre
+    {% endif %}
+    </p>
+
+    <h1>{{ user.getPseudo() }}</h1>
 
     <br>
     <table class="table table-hover">
@@ -14,7 +22,7 @@
             <th scope="col">Score</th>
         </thead>
         <tbody>
-            {% for game in app.user.getGames() %}
+            {% for game in user.getGames() %}
             <tr class="table-active">
                 <td scope="row">{{ game.getId() }} </td>
                 <td scope="row">{{ game.getCategory() }} </td>

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,10 +51,12 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/compte",name="compte")
+     * @Route("/compte/{user_id}",name="compte")
      */
-    public function compte() {
-        return $this->render('users/compte.html.twig');
+    public function compte(UserRepository $userRepository, int $user_id) {
+        return $this->render('users/compte.html.twig', [
+            'user' => $userRepository->getUserById($user_id)
+        ]);
     }
 
 }
