@@ -12,7 +12,18 @@
             <div class="col-5">
                 <div class="overflow-auto" style="max-height: 500px;">
                         {% for question in question_list %}
-                        <div class="b"></div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="img-fluid mb-5" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
+                                </div>
+                                <div class="col-8 ">
+                                    <p>C'était le drapeau de {{question.getFlag().getNomFr()}}</p>
+                                    <p>Votre Réponse : {{question.getPlayerAnswer()}}</p>
+                                    <p>Vous avez répondu en {{question.getTimeAnswered().diff(question.getTimeAsked()).s}} ce qui vous a rapporté {{question.getScore()}}</p>
+                                </div>
+                            </div>
+                        </div>
                         {% endfor %}
                 </div>
             </div>
