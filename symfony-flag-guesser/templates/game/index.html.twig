@@ -6,6 +6,10 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    #bar {
+    -webkit-transition: none !important;
+    transition: none !important;
+    }
 </style>
 
 <div class="container-md">
@@ -14,12 +18,12 @@
             <img class="img-fluid mb-5" src="https://flagcdn.com/{{ current_question.getFlag().getIso() }}.svg">
             <form id="rep">
                 <input class="form-control" type="text" name="Answer" id="ans" autofocus=true>
-            </form>
-            
+            </form>       
+            <div class="progress">
+                <div class="progress-bar bg-success slower" id ='bar' aria-valuenow="15" aria-valuemin="0" aria-valuemax="15" role="progressbar"></div>
+            </div>
         </div>
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-success" id ='bar' style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
-        </div>
+
         <div class="col-1 fs-3">
                 {% for q in questions%}
                     <div class="row-sm">
@@ -39,9 +43,7 @@
     </div>
 </div>
 <script>
-    var ansform = document.getElementById('rep')
-    ansform.addEventListener('submit', function(){
-        event.preventDefault();
+    function reroute() {
         var answer = document.getElementById("ans").value;
         if (answer == ""){
             answer = "_"
@@ -50,30 +52,216 @@
         route = route.replace("{id_game}",{{id_game}});
         route = route.replace("{ans_player}",answer);
         window.location.replace(route);
+    };
+
+    var ansform = document.getElementById('rep')
+    ansform.addEventListener('submit', function(){
+        event.preventDefault();
+        reroute();
     });
     
-    var bar = document.getElementById('bar');
-    var countdown = 100;
-    var width = "width: ";
-    document.onload = setInterval(function() {
-        var temp = width.concat(countdown.toString());
-        var temp = temp.concat('%');
-        bar.style = temp;
-        bar.ariaValuenow=countdown.toString();
-        countdown=countdown-1/15;
-    }, 100);/*
+    var offset = 0;
+    function calcOffset() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "./{{id_game}}", false);
+        xmlhttp.send();
 
-var i = 0;
-var bar = document.getElementById('bar');
-
-document.onload = setInterval(function(){
-    if (i>0) {
-        i = i - 0.1;
-        bar.style = ('width', i + '%');
-        bar.ariaVolume = i.toString();
-        alert('lol');
+        var dateStr = xmlhttp.getResponseHeader('Date');
+        // console.log(dateStr);
+        var now = new Date;
+        var utc_timestamp = Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
+        now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
+        var localMillisUTC = Date.parse(new Date().toUTCString());
+        // console.log('utc_timestamp=' + utc_timestamp);
+        // console.log('localMillisUTC=' + localMillisUTC);
+        offset = utc_timestamp -  localMillisUTC;
+        // console.log('offset=' + offset);
+        return offset;
     }
-}, 1000);
-*/
+
+    function getServerTime() {
+        var date = new Date();
+
+        date.setTime(date.getTime() + calcOffset());
+        date = Date.parse(date.toString());
+        // console.log(date)
+        return date;
+    }
+    ;
+    
+    
+    var bar = document.getElementById('bar');
+    var width = "width: ";
+    var countdown = Date.parse("{{ current_question.getTimeAskedString() }}");
+
+    // METHODE ANIMATION 2
+    /*
+    function draw() {
+        var utc_timestamp = getServerTime();
+        var final = (utc_timestamp-countdown).toString().slice(2, 4);
+        var temps = 100-final*100/15+100/15;
+        var temp = width.concat(temps);
+        var temp = temp.concat('%');
+        console.log(temp);
+        bar.style = temp;
+        
+        requestAnimationFrame(draw);
+    }
+    document.onload = draw();
+    */
+    /*
+    // METHODE LUCAS
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function interval() {
+        var utc_timestamp = getServerTime();
+        var final = (utc_timestamp-countdown).toString().slice(2, 4);
+        var temps = 100-final*100/15+100/15;
+        var temp = width.concat(temps);
+        var temp = temp.concat('%');
+        console.log(temp);
+        bar.style = temp;
+
+        while(1){
+            if (temps > 0) {
+                temps = temps-100/15;
+                var temp = width.concat(temps);
+                var temp = temp.concat('%');
+                console.log(temp);
+                bar.style = temp;
+                await sleep(1000);
+            }
+            else {
+                reroute();
+                break;
+            }
+        } 
+    }
+    document.onload=interval();
+    */
+    // METHODE REQUESTANIMATIONFRAME
+    /*
+    requestID = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    function interval() {
+        var utc_timestamp = getServerTime();
+        // console.log('hi ! it is ' + utc_timestamp)
+        // console.log("countdown =" + countdown);
+        // console.log(utc_timestamp-countdown);
+        var final = (utc_timestamp-countdown).toString().slice(2, 4);
+        // console.log('final' + final);
+        var temps = 100-final*100/15+100/15;
+        console.log('temps: ' + temps);
+        /*var j = 0;
+        var n = 0
+        var interval = setInterval(function() {
+            console.log('temps:' + temps + ' j: ' + j)
+            var temp = width.concat(temps-j);
+            var temp = temp.concat('%');
+            console.log(temp);
+            bar.style = temp;
+            j=j+10/15;
+            if (++n === 9) {
+                window.clearInterval(interval);
+                j=0;
+                n=0;
+            }
+        }, 100);
+        *//*
+        var temp = width.concat(temps);
+        var temp = temp.concat('%');
+        console.log(temp);
+        bar.style = temp;
+        if (temps > 0) {
+            requestAnimationFrame(interval);
+        }
+        else {
+            window.cancelAnimationFrame(requestID);
+            reroute();
+        }
+    }
+    requestAnimationFrame(interval);
+    */
+    // METHODE SETTIMEOUT
+    
+    function interval() {
+        var utc_timestamp = getServerTime();
+        // console.log('hi ! it is ' + utc_timestamp)
+        // console.log("countdown =" + countdown);
+        // console.log(utc_timestamp-countdown);
+        var final = (utc_timestamp-countdown).toString().slice(2, 4);
+        // console.log('final' + final);
+        var temps = 100-final*100/15+100/15;
+        console.log('temps: ' + temps);
+        /*var j = 0;
+        var n = 0
+        var interval = setInterval(function() {
+            console.log('temps:' + temps + ' j: ' + j)
+            var temp = width.concat(temps-j);
+            var temp = temp.concat('%');
+            console.log(temp);
+            bar.style = temp;
+            j=j+10/15;
+            if (++n === 9) {
+                window.clearInterval(interval);
+                j=0;
+                n=0;
+            }
+        }, 100);
+        */
+        var temp = width.concat(temps);
+        var temp = temp.concat('%');
+        console.log(temp);
+        bar.style = temp;
+        
+        if (temps<=0) {
+            clearTimeout(requestID);
+            reroute();
+        }
+        else {
+            setTimeout(interval, 1000);
+        }
+    };
+    requestID = setTimeout(interval, 1000);
+    
+    // METHODE SETINTERVAL
+    /*
+    interval = setInterval(function() {
+        var utc_timestamp = getServerTime();
+        // console.log('hi ! it is ' + utc_timestamp)
+        // console.log("countdown =" + countdown);
+        // console.log(utc_timestamp-countdown);
+        var final = (utc_timestamp-countdown).toString().slice(2, 4);
+        // console.log('final' + final);
+        var temps = 100-final*100/15+100/15;
+        console.log('temps: ' + temps);
+        /*var j = 0;
+        var n = 0
+        var interval = setInterval(function() {
+            console.log('temps:' + temps + ' j: ' + j)
+            var temp = width.concat(temps-j);
+            var temp = temp.concat('%');
+            console.log(temp);
+            bar.style = temp;
+            j=j+10/15;
+            if (++n === 9) {
+                window.clearInterval(interval);
+                j=0;
+                n=0;
+            }
+        }, 100);
+        *//*
+        var temp = width.concat(temps);
+        var temp = temp.concat('%');
+        console.log(temp);
+        bar.style = temp;
+        if (temps<=0) {
+            clearInterval(interval);
+            reroute();
+            }
+    }, 1000);
+    */
 </script>
 {% endblock %}

@@ -5,6 +5,9 @@ namespace App\Repository;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -12,13 +15,46 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method User[]    findAll()
  * @method User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UserRepository extends ServiceEntityRepository
+class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);
     }
 
+    /**
+     * Used to upgrade (rehash) the user's password automatically over time.
+     */
+    public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
+    {
+        if (!$user instanceof User) {
+            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
+        }
+
+        $user->setPassword($newHashedPassword);
+        $this->_em->persist($user);
+        $this->_em->flush();
+    }
+
+    public function getUserByPseudo(string $user_pseudo): ?User 
+    {
+        return $this->createQueryBuilder('user')
+            ->andWhere('user.pseudo = :user_pseudo')
+            ->setParameter('user_pseudo', $user_pseudo)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
+    public function getUserById(int $user_id): ?User 
+    {
+        return $this->createQueryBuilder('user')
+            ->andWhere('user.id = :user_id')
+            ->setParameter('user_id', $user_id)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

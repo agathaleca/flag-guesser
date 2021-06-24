@@ -75,6 +75,11 @@ class Question
     {
         return $this->time_asked;
     }
+    public function getTimeAskedString(): ?string
+    {
+        return $this->time_asked->format('Y-m-d H:i:s');
+    }
+    
 
     public function setTimeAsked(?\DateTimeInterface $time_asked): self
     {

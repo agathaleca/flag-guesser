@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Repository\FlagRepository;
+use App\Repository\UserRepository;
 use App\Entity\Question;
+use App\Entity\User;
 use App\Entity\Game;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,14 +14,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class FlagController extends AbstractController
 {
     /**
-     * @Route("/flag/{cont}", name="flag")
+     * @Route("/flag/{cont}/{user_pseudo}", name="flag")
      */
-    public function start_game(FlagRepository $flagRepository, string $cont): Response
+    public function start_game(FlagRepository $flagRepository, UserRepository $userRepository, string $cont, string $user_pseudo): Response
     {
         $flags = $flagRepository->findAllFlagsInContinent($cont);
         $em = $this->getDoctrine()->getManager();
         // quizz
         $quiz = new Game();
+        if ($user_pseudo != "anon") {
+            $user_connected = $userRepository->getUserByPseudo($user_pseudo);
+            $quiz->setPlayedBy($user_connected);
+        }
         $quiz->setCategory($cont);
         $quiz->setPlayedOn(new \DateTime());
 

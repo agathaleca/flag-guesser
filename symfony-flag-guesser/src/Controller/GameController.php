@@ -112,7 +112,7 @@ class GameController extends AbstractController
             if ($question->getAsked()==0) {
                 // la première question à l'état "non posée" passe à "en cours"
                 // on rempli ses champs en conséquence 
-                $question->setTimeAsked(new \DateTime());
+                $question->setTimeAsked(new \DateTime("now", new \DateTimeZone("UTC")));
                 $question->setAsked(1);
                 // on s'arrête dés qu'une question "non posée" est trouvée
                 break;
