@@ -23,9 +23,19 @@ class FlagController extends AbstractController
         $quiz->setCategory($cont);
         $quiz->setPlayedOn(new \DateTime());
 
+        // liste temporaire des drapeaux dans le quiz
+        $flags_in_quiz = array();
+
         for ($i = 1; $i <=10 ; $i++)
         {
-            $index = rand(0,count($flags)-1);
+
+            do {
+                $index = rand(0,count($flags)-1);
+            } while(in_array($flags[$index],$flags_in_quiz));
+            
+            // ajout à la liste temporaire (vérifier que pas deux drapeaux pareils)
+            array_push($flags_in_quiz,$flags[$index]);
+            
             $question = new Question();
             $question->setFlag($flags[$index]);
             $question->setAsked(0);
