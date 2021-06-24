@@ -105,7 +105,12 @@
     <br><br>
         
     <div class="d-grid gap-2 col-6 mx-auto">
+            {% if is_granted('ROLE_USER')%}
+            <button class="btn btn-primary" type="submit" onclick="myFunction( '{{ app.user.getPseudo() }}' )">PLAY RANKED</button>
+            {% else %}
             <button class="btn btn-primary" type="submit" onclick="myFunction()">PLAY</button>
+            {% endif %}
+
     </div>
 
     <script>
@@ -127,10 +132,13 @@
             // reassign click event handler
             this.onclick = checkAll;
         }
-        function myFunction(){
+        function myFunction($user_pseudo="anon"){
             var checkedBoxes = getCheckedBoxes();
             var route = "../flag/";
             route = route.concat(checkedBoxes);
+            route = route.concat("/");
+            route = route.concat($user_pseudo);
+            alert(route);
             window.location.replace(route);
         };
 
