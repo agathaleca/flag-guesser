@@ -35,7 +35,7 @@ class UserController extends AbstractController
             $user->setPassword (
                 $this->passwordEncoder->encodePassword($user,$form->get("password")->getData())
             );
-            
+
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($user);
@@ -47,6 +47,13 @@ class UserController extends AbstractController
         return $this->render('users/new.html.twig', [
             "form" => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/compte",name="compte")
+     */
+    public function compte() {
+        return $this->render('users/compte.html.twig');
     }
 
 }

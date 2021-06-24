@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    <h1>{{ app.user.getPseudo() }}</h1>
+
+    <br>
+    <table class="table table-hover">
+        <thead>
+            <th scope="col">Id</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">Score</th>
+        </thead>
+        <tbody>
+            {% for game in app.user.getGames() %}
+            <tr class="table-active">
+                <td scope="row">{{ game.getId() }} </td>
+                <td scope="row">{{ game.getCategory() }} </td>
+                <td scope="row">{{ game.getTotalScore() }} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
