@@ -30,40 +30,62 @@
 
                     </div>
                     <!-- AJOUTER LE CLASSEMENT ICI -->
-            </div>
-            <div class="col-5">
-                <div id="nbQuestion">Vous avez répondu juste à </div>
-                <div class="overflow-auto" style="max-height: 500px;">
-                        {%set i=1%}
-                        {% set bonrep=0 %}
-                        {% for question in question_list %}
-                        {% if question.getScore() > 0%}
-                            {%set bonrep = bonrep + 1%}
-                        {% endif %}
-                        <div class="card m-3" style="background-color: darkgrey;">
-                            <div class="row g-0">
-                                <div class="col-4 my-auto">
-                                    <img style="width: 100%;" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
+                    <br><br><br>
+                    <h2>Classement</h2>
+
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">Pseudo</th>
+                        <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for game in classement %}
+                        <tr class="table-active">
+                        <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a></td>
+                        <td>{{ game.getGameScore() }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
                                 </div>
-                                <div class="col-8 border-start border-secondary">
-                                    <div class="card-header">Question n°{{i}}</div>
-                                    <div clas="card-body">
-                                    <p>C'était le drapeau de {{question.getFlag().getNomFr()}}</p>
-                                    <p>Votre Réponse :{% if question.getPlayerAnswer() != "_"%} 
-                                        {{question.getPlayerAnswer()}}
-                                        {%endif%}</p>
+                                <div class="col-5">
+                                    <div id="nbQuestion">Vous avez répondu juste à </div>
+                                    <div class="overflow-auto" style="max-height: 500px;">
+                                            {%set i=1%}
+                                            {% set bonrep=0 %}
+                                            {% for question in question_list %}
+                                            {% if question.getScore() > 0%}
+                                                {%set bonrep = bonrep + 1%}
+                                            {% endif %}
+                                            <div class="card m-3" style="background-color: lightgrey;">
+                                                <div class="row g-0">
+                                                    <div class="col-4 my-auto">
+                                                        <img style="width: 100%;" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
+                                                    </div>
+                                                    <div class="col-8 border-start border-secondary">
+                                                        <div class="card-header">Question n°{{i}}</div>
+                                                        <div clas="card-body">
+                                                        <p>C'était le drapeau de {{question.getFlag().getNomFr()}}</p>
+                                                        <p>Votre Réponse :{% if question.getPlayerAnswer() != "_"%} 
+                                                            {{question.getPlayerAnswer()}}
+                                                            {%endif%}</p>
+                                                        </div>
+                                                        <div class="card-footer">Vous avez répondu en {{question.getTimeAnswered().diff(question.getTimeAsked()).s}} secondes ce qui vous a rapporté {{question.getScore()}} points !</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {%set i = i+1%}
+                                            {% endfor %}
                                     </div>
-                                    <div class="card-footer">Vous avez répondu en {{question.getTimeAnswered().diff(question.getTimeAsked()).s}} secondes ce qui vous a rapporté {{question.getScore()}} points !</div>
                                 </div>
                             </div>
                         </div>
-                        {%set i = i+1%}
-                        {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-<script>
+                    <script>
+
+
     (function(){
         document.getElementById("Share-link").value= window.location.href;
     })();

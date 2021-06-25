@@ -148,10 +148,12 @@ class GameController extends AbstractController
             $score = $quiz->getTotalScore();
             $quiz->setGameScore($score);
             $em->flush();
+            $classement = $gameRepository->findBestCategory($quiz->getCategory());
             return $this->render('game/recap.html.twig', [
                 "question_list" => $quiz->getQuestions(),
                 "id_game" => $quiz->getId(),
-                "game_score" => $score
+                "game_score" => $score,
+                "classement" => $classement
             ]);
         }
 
