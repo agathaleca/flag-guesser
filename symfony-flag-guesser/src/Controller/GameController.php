@@ -155,7 +155,8 @@ class GameController extends AbstractController
                 "id_game" => $quiz->getId(),
                 "game_score" => $score,
                 "classement" => $classement,
-                "temps_moyen" => $temps_moyen
+                "temps_moyen" => $temps_moyen,
+                "user" => $quiz->getPlayedBy()
             ]);
         }
 
