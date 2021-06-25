@@ -143,9 +143,10 @@ class GameController extends AbstractController
         $current_question = $quiz->getCurrentQuestion();
 
         if ($current_question==null) {
+            $score = $quiz->getTotalScore();
+            $quiz->setGameScore($score);
             return $this->render('game/recap.html.twig', [
                 "question_list" => $quiz->getQuestions(),
-                "game_score" => $quiz->getTotalScore(),
                 "id_game" => $quiz->getId()
             ]);
         }

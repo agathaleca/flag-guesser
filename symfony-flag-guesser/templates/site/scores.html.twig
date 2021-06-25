@@ -4,11 +4,13 @@
 
 {% block body %}
 
-    <h1>C'est la page des scores !</h1>
+  <h1>C'est la page des scores !</h1>
 
-    <p> Mais tu n'es pas dedans c'est dommage ça...</p>
+  <br><br>
 
-    <table class="table table-hover">
+  <h2>World</h2>
+
+  <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">Pseudo</th>
@@ -16,10 +18,31 @@
     </tr>
   </thead>
   <tbody>
-  {% for user in users %}
+
+  {% for game in classement_europe %}
     <tr class="table-active">
-      <th scope="row"><a href="/compte/{{ user.getId() }}">{{ user.pseudo }}</a></th>
-      <td>Non calculé pour l'instant</td>
+      <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a></td>
+      <td>{{ game.getGameScore() }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+  <h2>Europe</h2>
+
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for game in classement_europe %}
+    <tr class="table-active">
+      <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a></td>
+      <td>{{ game.getGameScore() }}</td>
     </tr>
   {% endfor %}
   </tbody>

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Game;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -34,7 +35,35 @@ class GameRepository extends ServiceEntityRepository
         ;
     }
 
-    /* 
+
+
+    public function findBestCategory($category)
+    {
+        return $this->createQueryBuilder('g')
+            ->where('g.category = :category')->setParameter('category', $category)
+            ->andWhere('g.played_by IS NOT NULL')
+            ->orderBy('g.game_score', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+    // finds 10 best games played by a user (user id in parameters)
+    public function findByUser($user_id)
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.played_by = :user_id')
+            ->setParameter('user_id', $user_id)
+            ->orderBy('g->getTotalScore()', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /*
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('g')

@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
+use App\Repository\GameRepository;
 
 class SiteController extends AbstractController
 {
@@ -41,12 +42,23 @@ class SiteController extends AbstractController
     /**
      * @Route("/scores",name="scores")
      */
-    public function scores() {
-        $repo = $this->getDoctrine()->getRepository(User::class);
-        $users = $repo->findAll();
+    public function scores(GameRepository $gameRepository) {
+        $classement_europe = $gameRepository->findBestCategory('Europe-');
+        $classement_asie = $gameRepository->findBestCategory('Asie-');
+        $classement_amerique = $gameRepository->findBestCategory('Amérique-');
+        $classement_us = $gameRepository->findBestCategory('US States');
+        $classement_afrique = $gameRepository->findBestCategory('Africa-');
+        $classement_oceanie = $gameRepository->findBestCategory('Oceania-');
+        $classement_world = $gameRepository->findBestCategory('Amérique-Europe-Asia-US States-Africa-Oceania-');
         // le fichier twig qu'on veut afficher
         return $this->render('site/scores.html.twig', [
-            "users" => $users
+            "classement_europe" => $classement_europe,
+            "classement_asie" => $classement_asie,
+            "classement_world" => $classement_world,
+            "classement_amerique" => $classement_amerique,
+            "classement_us" => $classement_us,
+            "classement_afrique" => $classement_afrique,
+            "classement_oceanie" => $classement_oceanie
         ]);
     }
 

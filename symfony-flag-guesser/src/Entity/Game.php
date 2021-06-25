@@ -24,10 +24,16 @@ class Game
      */
     private $category;
 
+
     /**
      * @ORM\Column(type="datetime")
      */
     private $played_on;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $game_score;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="games", cascade={"persist"})
@@ -61,6 +67,18 @@ class Game
         return $this;
     }
 
+    public function getGameScore(): ?int
+    {
+        return $this->game_score;
+    }
+
+    public function setGameScore(int $game_score): self
+    {
+        $this->game_score = $game_score;
+
+        return $this;
+    }
+
     public function getPlayedOn(): ?\DateTimeInterface
     {
         return $this->played_on;
@@ -84,6 +102,7 @@ class Game
 
         return $this;
     }
+
 
     /**
      * @return Collection|Question[]

@@ -33,7 +33,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=50)
      */
     private $mail;
-    
+
     /**
      * @ORM\Column(type="json")
      */
@@ -204,4 +204,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    public function getMaxScore(): ?int
+    {
+        $max_score=null;
+        foreach ($this->getGames() as $game) {
+            if ($game->getTotalScore()>$max_score) {
+                $max_score=$game->getTotalScore();
+            }
+        }
+        return $max_score;
+    }
+
+    public function getMaxScoreCategory(string $category): ?int
+    {
+        $max_score=null;
+        foreach ($this->getGames() as $game) {
+            if ($game->getTotalScore()>$max_score && $game->getCategory()==$category) {
+                $max_score=$game->getTotalScore();
+            }
+        }
+        return $max_score;
+    }
+
 }
