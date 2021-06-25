@@ -147,7 +147,8 @@ class GameController extends AbstractController
             $quiz->setGameScore($score);
             return $this->render('game/recap.html.twig', [
                 "question_list" => $quiz->getQuestions(),
-                "id_game" => $quiz->getId()
+                "id_game" => $quiz->getId(),
+                "game_score" => $score
             ]);
         }
 
