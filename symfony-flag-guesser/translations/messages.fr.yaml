@@ -12,3 +12,6 @@ quiz:
     pick: Choisis au moins une carte pour jouer
 recap:
     share: Partager
+compte:
+  historique: Historique des 10 dernières parties
+Symfony is great: lol fr

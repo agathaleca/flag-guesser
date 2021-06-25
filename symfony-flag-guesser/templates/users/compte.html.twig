@@ -7,6 +7,8 @@
     <p style="color:green;">
     {% if (app.user!=null) and (app.user.getId() == user.getId()) %}
         C'est votre compte et vous êtes connecté !
+        <hr>
+        {{ form(form) }}
     {% else %}
         Vous consultez le profile de quelqu'un d'autre
     {% endif %}
@@ -20,7 +22,8 @@
     <hr>
     
     <br>
-    <h2>Historique des 10 dernières parties</h2>
+    <h2>{% trans %} compte.historique {% endtrans %}</h2>
+    <h2>{{ history }}</h2>
     <table class="table table-hover">
         <thead>
             <th scope="col">Id</th>

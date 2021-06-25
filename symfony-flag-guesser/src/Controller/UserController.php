@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserController extends AbstractController
 {
@@ -54,11 +57,43 @@ class UserController extends AbstractController
     /**
      * @Route("/compte/{user_id}",name="compte")
      */
-    public function compte(GameRepository $gameRepository, UserRepository $userRepository, int $user_id) {
+    public function compte(GameRepository $gameRepository, UserRepository $userRepository, int $user_id, Request $request, TranslatorInterface $translator) {
         $user = $userRepository->getUserById($user_id);
+        
+        $form = $this->createFormBuilder(null)
+        ->add('locale', ChoiceType::class, [
+            'choices' => [
+                'Français' 		=> 'fr',
+                'English(US)'	=> 'en'
+            ]
+        ])
+        ->add('save', SubmitType::class)
+        ->getForm()
+        ;
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $em = $this->getDoctrine()->getManager();
+            $locale = $form->getData()['locale'];
+            $user = $this->getUser();
+            $user->setLocale($locale);
+            $em->persist($user);
+            $em->flush();
+        }
+        $historique = $translator->trans(
+            'Symfony is great',
+            [],
+            'messages',
+            $user->getLocale()
+        );
+        
+        // $historique = $translator->trans('compte.historique');
         return $this->render('users/compte.html.twig', [
             'user' => $user,
-            'best_games' => $gameRepository->findBestUser($user)
+            'best_games' => $gameRepository->findBestUser($user),
+            'form'		=> $form->createView(),
+            'history' => $historique
         ]);
     }
 
