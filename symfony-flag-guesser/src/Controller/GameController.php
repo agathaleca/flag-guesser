@@ -30,8 +30,7 @@ class GameController extends AbstractController
                 'ù', 'û', 'ü', 'ú', 
                 'é', 'è', 'ê', 'ë', 
                 'ç', 'ÿ', 'ñ',
-                'Î', 'É', 'Å',
-                'I','E','A'
+                'Î', 'É', 'Å'
             ),
             array(
                 '_','_',
@@ -40,7 +39,8 @@ class GameController extends AbstractController
                 'o', 'o', 'o', 'o', 'o', 'o', 
                 'u', 'u', 'u', 'u', 
                 'e', 'e', 'e', 'e', 
-                'c', 'y', 'n'
+                'c', 'y', 'n',
+                'I','E','A'
             ),
             $current_question->getFlag()->getNomFr()
         );
