@@ -65,10 +65,10 @@
 {% endblock %}
 {% block body %}
 
-    <h1>C'est la page de quiz !</h1>
+    <h1>{% trans %}quiz.page{% endtrans %}</h1>
 
     <div class="container my-5" id="maps">
-        <h2 class='display-4'>Choose at least one map</h2>
+        <h2 class='display-4'>{% trans %}quiz.pick{% endtrans %}</h2>
     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"></div>
     <div class="btn-group me-2" role="group" aria-label="First group">
         <input type="checkbox" class="btn-check" id="btncheck1" name="Amérique" autocomplete="off">
@@ -138,7 +138,6 @@
             route = route.concat(checkedBoxes);
             route = route.concat("/");
             route = route.concat($user_pseudo);
-            alert(route);
             window.location.replace(route);
         };
 

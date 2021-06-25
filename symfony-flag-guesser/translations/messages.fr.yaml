@@ -1,0 +1,14 @@
+symfony:
+    is:
+        # id is symfony.is.great
+        great: Symfony est cool
+        # id is symfony.is.amazing
+        amazing: Symfony est génial
+    has:
+        # id is symfony.has.bundles
+        bundles: Symfony a des packages
+quiz:
+    page: C'est la page de quiz !
+    pick: Choisis au moins une carte pour jouer
+recap:
+    share: Partager

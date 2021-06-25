@@ -49,7 +49,7 @@ class SiteController extends AbstractController
         $classement_us = $gameRepository->findBestCategory('US States');
         $classement_afrique = $gameRepository->findBestCategory('Africa-');
         $classement_oceanie = $gameRepository->findBestCategory('Oceania-');
-        $classement_world = $gameRepository->findBestCategory('Amérique-Europe-Asia-US States-Africa-Oceania-');
+        $classement_world = $gameRepository->findBestCategory('Amérique-Europe-Asie-US States-Afrique-Oceanie-');
         // le fichier twig qu'on veut afficher
         return $this->render('site/scores.html.twig', [
             "classement_europe" => $classement_europe,

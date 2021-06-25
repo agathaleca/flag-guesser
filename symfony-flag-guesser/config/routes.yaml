@@ -1,3 +1,9 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+# config/routes.yaml
+contact:
+    path:       /{_locale}/contact
+    controller: App\Controller\ContactController::index
+    requirements:
+        _locale: fr|en
