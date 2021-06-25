@@ -49,7 +49,8 @@ class GameController extends AbstractController
                 'ô', 'ö', 'ò', 'ó', 'õ', 'ø', 
                 'ù', 'û', 'ü', 'ú', 
                 'é', 'è', 'ê', 'ë', 
-                'ç', 'ÿ', 'ñ'
+                'ç', 'ÿ', 'ñ',
+                'Î', 'É', 'Å'
             ),
             array(
                 '_','_',
@@ -58,7 +59,8 @@ class GameController extends AbstractController
                 'o', 'o', 'o', 'o', 'o', 'o', 
                 'u', 'u', 'u', 'u', 
                 'e', 'e', 'e', 'e', 
-                'c', 'y', 'n'
+                'c', 'y', 'n',
+                'I','E','A'
             ),
             $ans_player
         );
