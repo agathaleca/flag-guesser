@@ -32,15 +32,20 @@
                     <!-- AJOUTER LE CLASSEMENT ICI -->
             </div>
             <div class="col-5">
+                <div id="nbQuestion">Vous avez répondu juste à </div>
                 <div class="overflow-auto" style="max-height: 500px;">
                         {%set i=1%}
+                        {% set bonrep=0 %}
                         {% for question in question_list %}
-                        <div class="card m-3">
+                        {% if question.getScore() > 0%}
+                            {%set bonrep = bonrep + 1%}
+                        {% endif %}
+                        <div class="card m-3" style="background-color: darkgrey;">
                             <div class="row g-0">
-                                <div class="col-4 my-auto bg-light">
-                                    <img class="img-fluid bg-transparent" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
+                                <div class="col-4 my-auto">
+                                    <img style="width: 100%;" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8 border-start border-secondary">
                                     <div class="card-header">Question n°{{i}}</div>
                                     <div clas="card-body">
                                     <p>C'était le drapeau de {{question.getFlag().getNomFr()}}</p>
@@ -62,6 +67,10 @@
     (function(){
         document.getElementById("Share-link").value= window.location.href;
     })();
+
+    (function () {
+            document.getElementById("nbQuestion").innerText = document.getElementById("nbQuestion").innerText + " {{bonrep}} drapeaux";
+        })();
 
     function cp() {
             /* Get the text field */
