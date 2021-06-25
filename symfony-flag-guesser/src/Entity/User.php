@@ -209,8 +209,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $max_score=null;
         foreach ($this->getGames() as $game) {
-            if ($game->getTotalScore()>$max_score) {
-                $max_score=$game->getTotalScore();
+            if ($game->getGameScore()>$max_score) {
+                $max_score=$game->getGameScore();
             }
         }
         return $max_score;
