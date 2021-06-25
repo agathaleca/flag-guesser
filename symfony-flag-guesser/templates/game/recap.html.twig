@@ -73,7 +73,7 @@
                                                     <div class="col-8 border-start border-secondary">
                                                         <div class="card-header">Question n°{{i}}</div>
                                                         <div clas="card-body">
-                                                        <p>C'était le drapeau de {{question.getFlag().getNomFr()}}</p>
+                                                        <p>La réponse était : {{question.getFlag().getNomFr()}}</p>
                                                         <p>Votre Réponse :{% if question.getPlayerAnswer() != "_"%} 
                                                             {{question.getPlayerAnswer()}}
                                                             {%endif%}</p>
