@@ -133,6 +133,8 @@ class GameController extends AbstractController
      */
     public function index(GameRepository $gameRepository, int $id_game): Response
     {
+        // manager
+        $em = $this->getDoctrine()->getManager();
 
         $quiz =  $gameRepository->findGameById($id_game);
 
@@ -145,6 +147,7 @@ class GameController extends AbstractController
         if ($current_question==null) {
             $score = $quiz->getTotalScore();
             $quiz->setGameScore($score);
+            $em->flush();
             return $this->render('game/recap.html.twig', [
                 "question_list" => $quiz->getQuestions(),
                 "id_game" => $quiz->getId(),
