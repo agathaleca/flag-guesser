@@ -86,7 +86,7 @@ class GameController extends AbstractController
             $current_question->setTimeAnswered(new \Datetime());
             // on fixe le score de la question 
             $t = $current_question->getTimeAnswered()->diff($current_question->getTimeAsked())->s;
-            if ($t<15) {
+            if ($t<=15) {
                 // maj de la bdd
                 // on retourne la page avec la question actuelle (inchangée) pour retry
                 $em->flush();

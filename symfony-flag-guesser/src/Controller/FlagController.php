@@ -28,6 +28,7 @@ class FlagController extends AbstractController
         }
         $quiz->setCategory($cont);
         $quiz->setPlayedOn(new \DateTime());
+        $quiz->setGameScore(0);
 
         // liste temporaire des drapeaux dans le quiz
         $flags_in_quiz = array();

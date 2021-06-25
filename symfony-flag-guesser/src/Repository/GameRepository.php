@@ -51,13 +51,13 @@ class GameRepository extends ServiceEntityRepository
 
 
     // finds 10 best games played by a user (user id in parameters)
-    public function findByUser($user_id)
+    public function findBestUser(User $user)
     {
         return $this->createQueryBuilder('g')
-            ->andWhere('g.played_by = :user_id')
-            ->setParameter('user_id', $user_id)
-            ->orderBy('g->getTotalScore()', 'DESC')
-            ->setMaxResults(10)
+            ->where('g.played_by = :user')
+            ->setParameter('user', $user)
+            ->orderBy('g.game_score', 'DESC')
+            ->setMaxResults(3)
             ->getQuery()
             ->getResult()
         ;

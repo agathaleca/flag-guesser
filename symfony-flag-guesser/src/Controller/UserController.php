@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\GameRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,9 +54,11 @@ class UserController extends AbstractController
     /**
      * @Route("/compte/{user_id}",name="compte")
      */
-    public function compte(UserRepository $userRepository, int $user_id) {
+    public function compte(GameRepository $gameRepository, UserRepository $userRepository, int $user_id) {
+        $user = $userRepository->getUserById($user_id);
         return $this->render('users/compte.html.twig', [
-            'user' => $userRepository->getUserById($user_id)
+            'user' => $user,
+            'best_games' => $gameRepository->findBestUser($user)
         ]);
     }
 

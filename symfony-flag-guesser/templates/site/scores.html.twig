@@ -19,7 +19,7 @@
   </thead>
   <tbody>
 
-  {% for game in classement_europe %}
+  {% for game in classement_world %}
     <tr class="table-active">
       <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a></td>
       <td>{{ game.getGameScore() }}</td>
