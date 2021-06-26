@@ -17,12 +17,12 @@
     <h1>{{ user.getPseudo() }}</h1>
 
     <br>
-    <h2>Meilleur score : {{ user.getMaxScore() }}</h2>
+    <h2>{%trans%}Meilleur score{%endtrans%} : {{ user.getMaxScore() }}</h2>
 
     <hr>
     
     <br>
-    <h2>{% trans %} compte.historique {% endtrans %}</h2>
+    <h2>{% trans %} historique {% endtrans %}</h2>
     <table class="table table-hover">
         <thead>
             <th scope="col">Id</th>

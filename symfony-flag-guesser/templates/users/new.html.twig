@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<h1>Inscription</h1>
+<h1>{%trans%}Inscription{%endtrans%}</h1>
 
     {{ form_start(form) }}
     <div style="width:50%; background-color:#95A5A6;padding:20px;border-radius:4px 4px 4px 4px;margin-left: auto;margin-right: auto;padding:20px;text-align:left;">
@@ -21,7 +21,7 @@
         <div class="form-group">
             {{ form_widget(form.password) }}
         </div>
-        <button class="btn btn-success">Valider</button>
+        <button class="btn btn-success">{%trans%}Valider{%endtrans%}</button>
     </div>
     {{ form_end(form) }}
 
