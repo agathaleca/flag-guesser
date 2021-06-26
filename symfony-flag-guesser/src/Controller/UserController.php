@@ -46,7 +46,7 @@ class UserController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('inscription');
         }
 
         return $this->render('users/new.html.twig', [

@@ -69,4 +69,11 @@ class SiteController extends AbstractController
         // le fichier twig qu'on veut afficher
         return $this->render('site/connexion.html.twig');
     }
+
+    /**
+     * @Route("/inscription",name="inscription")
+     */
+    public function inscription() {
+        return $this->render('site/inscription.html.twig');
+    }
 }

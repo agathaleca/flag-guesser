@@ -8,6 +8,11 @@
             <div class="col-7">
                     <h1>Résultats du quiz #{{ id_game }}</h1>
                     <h2 class="fw-bolder">Score : {{ game_score }}</h2>
+                    <p>
+                    {% if user is not null %}
+                    Réalisé par {{ user.getPseudo() }}<br>
+                    {% endif %}
+                    Temps moyen de réponse : {{ temps_moyen }} secondes</p>
                     <a class="btn btn-success" data-bs-toggle="collapse" href="#Share-collapse" role="button" aria-expanded="false"
                         aria-controls="Share-collapse">
                         <i class="fas fa-share"></i> Partager
@@ -68,7 +73,7 @@
                                                     <div class="col-8 border-start border-secondary">
                                                         <div class="card-header">Question n°{{i}}</div>
                                                         <div clas="card-body">
-                                                        <p>C'était le drapeau de {{question.getFlag().getNomFr()}}</p>
+                                                        <p>La réponse était : {{question.getFlag().getNomFr()}}</p>
                                                         <p>Votre Réponse :{% if question.getPlayerAnswer() != "_"%} 
                                                             {{question.getPlayerAnswer()}}
                                                             {%endif%}</p>
