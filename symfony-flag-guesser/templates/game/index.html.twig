@@ -174,17 +174,17 @@
             }
         }, 100);
         *//*
-    var temp = width.concat(temps);
-    var temp = temp.concat('%');
-    console.log(temp);
-    bar.style = temp;
-    if (temps > 0) {
-        requestAnimationFrame(interval);
-    }
-    else {
-        window.cancelAnimationFrame(requestID);
-        reroute();
-    }
+var temp = width.concat(temps);
+var temp = temp.concat('%');
+console.log(temp);
+bar.style = temp;
+if (temps > 0) {
+    requestAnimationFrame(interval);
+}
+else {
+    window.cancelAnimationFrame(requestID);
+    reroute();
+}
 }
 requestAnimationFrame(interval);
 */
@@ -220,14 +220,14 @@ requestAnimationFrame(interval);
         //console.log(temp);
         bar.style = temp;
         if (temps <= 0) {
-            //clearTimeout(requestID);
+            clearTimeout(intervalID);
             reroute();
         }
         // else {
         //     setTimeout(interval, 1000);
         // }
     };
-    setInterval(interval, 1000);
+    $intervalID = setInterval(interval, 1000);
 
     // METHODE SETINTERVAL
     /*
@@ -256,14 +256,14 @@ requestAnimationFrame(interval);
             }
         }, 100);
         *//*
-    var temp = width.concat(temps);
-    var temp = temp.concat('%');
-    console.log(temp);
-    bar.style = temp;
-    if (temps<=0) {
-        clearInterval(interval);
-        reroute();
-        }
+var temp = width.concat(temps);
+var temp = temp.concat('%');
+console.log(temp);
+bar.style = temp;
+if (temps<=0) {
+    clearInterval(interval);
+    reroute();
+    }
 }, 1000);
 */
 </script>

@@ -3,112 +3,117 @@
 {% block title %}Recap{% endblock %}
 
 {% block body %}
-    <div class="container-xl">
-        <div class="row">
-            <div class="col-7">
-                    <h1>Résultats du quiz #{{ id_game }}</h1>
-                    <h2 class="fw-bolder">Score : {{ game_score }}</h2>
-                    <p>
-                    {% if user is not null %}
-                    Réalisé par {{ user.getPseudo() }}<br>
-                    {% endif %}
-                    Temps moyen de réponse : {{ temps_moyen }} secondes</p>
-                    <a class="btn btn-success" data-bs-toggle="collapse" href="#Share-collapse" role="button" aria-expanded="false"
-                        aria-controls="Share-collapse">
-                        <i class="fas fa-share"></i> Partager
-                    </a>
-                    <div class="collapse m-3" id="Share-collapse">
-                        <div class="card">
-                            <div class="card-header">
-                                <p>Donne ce lien à tes amis pour qu'ils aient accès au recap de cette partie !
-                                <a class="btn btn-close" data-bs-toggle="collapse" href="#Share-collapse" role="button" aria-expanded="false"
-                                aria-controls="Share-collapse"></a>
-                                </p>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-10"><input type="text" class="form-control" id="Share-link" value=""></div>
-                                    <div class="col-2"><button type="button" class="btn btn-secondary" onclick="cp()">Copy</button></div>
-                                </div>
-                            </div>
-                        </div>
-
+<div class="container-xl">
+    <div class="row">
+        <div class="col-7">
+            <h1>{%trans%}Résultats du quiz {%endtrans%} #{{ id_game }}</h1>
+            <h2 class="fw-bolder">Score : {{ game_score }}</h2>
+            <p>
+                {% if user is not null %}
+                {%trans%}Réalisé par {%endtrans%} {{ user.getPseudo() }}<br>
+                {% endif %}
+                {%trans%}Temps moyen de réponse : {%endtrans%}{{ temps_moyen }} {%trans%}secondes{%endtrans%}</p>
+            <a class="btn btn-success" data-bs-toggle="collapse" href="#Share-collapse" role="button"
+                aria-expanded="false" aria-controls="Share-collapse">
+                <i class="fas fa-share"></i>{%trans%}Partager{%endtrans%}
+            </a>
+            <div class="collapse m-3" id="Share-collapse">
+                <div class="card">
+                    <div class="card-header">
+                        <p>{%trans%}Donne ce lien à tes amis pour qu'ils aient accès au recap de cette partie
+                            !{%endtrans%}
+                            <a class="btn btn-close" data-bs-toggle="collapse" href="#Share-collapse" role="button"
+                                aria-expanded="false" aria-controls="Share-collapse"></a>
+                        </p>
                     </div>
-                    <!-- AJOUTER LE CLASSEMENT ICI -->
-                    <br><br><br>
-                    <h2>Classement</h2>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-10"><input type="text" class="form-control" id="Share-link" value=""></div>
+                            <div class="col-2"><button type="button" class="btn btn-secondary"
+                                    onclick="cp()">{%trans%}Copie{%endtrans%}</button></div>
+                        </div>
+                    </div>
+                </div>
 
-                    <table class="table table-hover">
-                    <thead>
-                        <tr>
+            </div>
+            <!-- AJOUTER LE CLASSEMENT ICI -->
+            <br><br><br>
+            <h2>{%trans%}Classement{%endtrans%}</h2>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
                         <th scope="col">Pseudo</th>
                         <th scope="col">Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    </tr>
+                </thead>
+                <tbody>
 
                     {% for game in classement %}
-                        <tr class="table-active">
-                        <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a></td>
+                    <tr class="table-active">
+                        <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
+                                game.getPlayedBy().getPseudo()}}</a></td>
                         <td>{{ game.getGameScore() }}</td>
-                        </tr>
+                    </tr>
                     {% endfor %}
-                    </tbody>
-                    </table>
-                                </div>
-                                <div class="col-5">
-                                    <div id="nbQuestion">Vous avez répondu juste à </div>
-                                    <div class="overflow-auto" style="max-height: 500px;">
-                                            {%set i=1%}
-                                            {% set bonrep=0 %}
-                                            {% for question in question_list %}
-                                            {% if question.getScore() > 0%}
-                                                {%set bonrep = bonrep + 1%}
-                                            {% endif %}
-                                            <div class="card m-3" style="background-color: lightgrey;">
-                                                <div class="row g-0">
-                                                    <div class="col-4 my-auto">
-                                                        <img style="width: 100%;" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
-                                                    </div>
-                                                    <div class="col-8 border-start border-secondary">
-                                                        <div class="card-header">Question n°{{i}}</div>
-                                                        <div clas="card-body">
-                                                        <p>La réponse était : {{question.getFlag().getNomFr()}}</p>
-                                                        <p>Votre Réponse :{% if question.getPlayerAnswer() != "_"%} 
-                                                            {{question.getPlayerAnswer()}}
-                                                            {%endif%}</p>
-                                                        </div>
-                                                        <div class="card-footer">Vous avez répondu en {{question.getTimeAnswered().diff(question.getTimeAsked()).s}} secondes ce qui vous a rapporté {{question.getScore()}} points !</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {%set i = i+1%}
-                                            {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-5">
+            <div id="nbQuestion">{%trans%}Vous avez répondu juste à {%endtrans%}</div>
+            <div class="overflow-auto" style="max-height: 500px;">
+                {%set i=1%}
+                {% set bonrep=0 %}
+                {% for question in question_list %}
+                {% if question.getScore() > 0%}
+                {%set bonrep = bonrep + 1%}
+                {% endif %}
+                <div class="card m-3" style="background-color: lightgrey;">
+                    <div class="row g-0">
+                        <div class="col-4 my-auto">
+                            <img style="width: 100%;" src="https://flagcdn.com/{{ question.getFlag().getIso() }}.svg">
                         </div>
-                    <script>
+                        <div class="col-8 border-start border-secondary">
+                            <div class="card-header">{%trans%}Question n°{%endtrans%}{{i}}</div>
+                            <div clas="card-body">
+                                <p>{%trans%}La réponse était : {%endtrans%} {{question.getFlag().getNomFr()}}</p>
+                                <p>{%trans%}Votre Réponse : {%endtrans%} {% if question.getPlayerAnswer() != "_"%}
+                                    {{question.getPlayerAnswer()}}
+                                    {%endif%}</p>
+                            </div>
+                            <div class="card-footer">{%trans%}Vous avez répondu en {%endtrans%}
+                                {{question.getTimeAnswered().diff(question.getTimeAsked()).s}} {%trans%}secondes ce qui
+                                vous a rapporté {%endtrans%}{{question.getScore()}} {%trans%} points !{%endtrans%}</div>
+                        </div>
+                    </div>
+                </div>
+                {%set i = i+1%}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
 
 
-    (function(){
-        document.getElementById("Share-link").value= window.location.href;
+    (function () {
+        document.getElementById("Share-link").value = window.location.href;
     })();
 
     (function () {
-            document.getElementById("nbQuestion").innerText = document.getElementById("nbQuestion").innerText + " {{bonrep}} drapeaux";
-        })();
+        document.getElementById("nbQuestion").innerText = document.getElementById("nbQuestion").innerText + " {{bonrep}} {%trans%}drapeaux{%endtrans%}";
+    })();
 
     function cp() {
-            /* Get the text field */
-            var copyText = document.getElementById("Share-link");
+        /* Get the text field */
+        var copyText = document.getElementById("Share-link");
 
-            /* Select the text field */
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
-            /* Copy the text inside the text field */
-            document.execCommand("copy");
-        }
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+    }
 </script>
 {% endblock %}

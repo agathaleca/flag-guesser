@@ -33,6 +33,176 @@
         <source>Déconnexion</source>
         <target>Disconnect</target>
       </trans-unit>
+      <trans-unit id="3LY_NnA" resname="C'est la page des scores !">
+        <source>C'est la page des scores !</source>
+        <target>This is score's page !</target>
+      </trans-unit>
+      <trans-unit id="ywVFGTe" resname="Monde">
+        <source>Monde</source>
+        <target>World</target>
+      </trans-unit>
+      <trans-unit id="Efkd5SX" resname="Vos meilleurs scores en catégorie">
+        <source>Vos meilleurs scores en catégorie</source>
+        <target>Your highest scores per cateory</target>
+      </trans-unit>
+      <trans-unit id="5ZX0Xcb" resname="Europe">
+        <source>Europe</source>
+        <target>Europe</target>
+      </trans-unit>
+      <trans-unit id="Yki3uHh" resname="Asie">
+        <source>Asie</source>
+        <target>Asia</target>
+      </trans-unit>
+      <trans-unit id="uZOQTYK" resname="Amérique">
+        <source>Amérique</source>
+        <target>America</target>
+      </trans-unit>
+      <trans-unit id="lsRCkeD" resname="Afrique">
+        <source>Afrique</source>
+        <target>Africa</target>
+      </trans-unit>
+      <trans-unit id="_obJIsX" resname="Océanie">
+        <source>Océanie</source>
+        <target>Oceania</target>
+      </trans-unit>
+      <trans-unit id="PE5tXgu" resname="US States">
+        <source>US States</source>
+        <target>US States</target>
+      </trans-unit>
+      <trans-unit id="cghfkln" resname="Inscription réussie !">
+        <source>Inscription réussie !</source>
+        <target>Sign up successful !</target>
+      </trans-unit>
+      <trans-unit id="IBLFME_" resname="Vous pouvez maintenant vous">
+        <source>Vous pouvez maintenant vous</source>
+        <target>You can now </target>
+      </trans-unit>
+      <trans-unit id=".g1igMz" resname="connecter">
+        <source>connecter</source>
+        <target>connect</target>
+      </trans-unit>
+      <trans-unit id="NgfMtFv" resname="C'est la page de connexion !">
+        <source>C'est la page de connexion !</source>
+        <target>This is log in page !</target>
+      </trans-unit>
+      <trans-unit id="2exxMrG" resname="Bienvenue sur le site !">
+        <source>Bienvenue sur le site !</source>
+        <target>Welcome to the website</target>
+      </trans-unit>
+      <trans-unit id="z7GsDIB" resname="Inscription">
+        <source>Inscription</source>
+        <target>Sign up</target>
+      </trans-unit>
+      <trans-unit id="YdaVBBA" resname="Connexion">
+        <source>Connexion</source>
+        <target>Log in</target>
+      </trans-unit>
+      <trans-unit id="3HuNrsv" resname="C'est votre compte et vous êtes connecté !">
+        <source>C'est votre compte et vous êtes connecté !</source>
+        <target>This is your account and you are logged in !</target>
+      </trans-unit>
+      <trans-unit id="ExZiI0X" resname="Partager">
+        <source>Partager</source>
+        <target>Share</target>
+      </trans-unit>
+      <trans-unit id="ci2G3CT" resname="Donne ce lien à tes amis pour qu'ils voient tes meilleures parties !">
+        <source>Donne ce lien à tes amis pour qu'ils voient tes meilleures parties !</source>
+        <target>Send this link to your friends so they can see your best games !</target>
+      </trans-unit>
+      <trans-unit id="hwhYVZN" resname="Vous consultez le profile de quelqu'un d'autre">
+        <source>Vous consultez le profile de quelqu'un d'autre</source>
+        <target>You are seeing someone else's profile</target>
+      </trans-unit>
+      <trans-unit id="IH8v9ZW" resname="Meilleur score">
+        <source>Meilleur score</source>
+        <target>Highest score</target>
+      </trans-unit>
+      <trans-unit id="lHDuo6V" resname="Historique des 10 dernières parties">
+        <source>Historique des 10 dernières parties</source>
+        <target>10 last games history</target>
+      </trans-unit>
+      <trans-unit id="YmunqJ." resname="Valider">
+        <source>Valider</source>
+        <target>Validate</target>
+      </trans-unit>
+      <trans-unit id="FPtuC59" resname="On dirait que quelque chose s'est mal passé |:&lt;">
+        <source>On dirait que quelque chose s'est mal passé |:&lt;</source>
+        <target><![CDATA[__Something went wrong |:<]]></target>
+      </trans-unit>
+      <trans-unit id="k8Q9bD9" resname="Vous êtes connecté en tant que :">
+        <source>Vous êtes connecté en tant que :</source>
+        <target>You are logged in as :</target>
+      </trans-unit>
+      <trans-unit id=".5yLjAZ" resname="Mot de passe">
+        <source>Mot de passe</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="W2.vlfu" resname="Tout sélectionner">
+        <source>Tout sélectionner</source>
+        <target>Select all</target>
+      </trans-unit>
+      <trans-unit id="7rl9E87" resname="JOUER">
+        <source>JOUER</source>
+        <target>PLAY</target>
+      </trans-unit>
+      <trans-unit id="IR.tMSg" resname="Résultats du quiz">
+        <source>Résultats du quiz</source>
+        <target>Quiz results</target>
+      </trans-unit>
+      <trans-unit id="NdfRoM1" resname="Réalisé par">
+        <source>Réalisé par</source>
+        <target>Played by</target>
+      </trans-unit>
+      <trans-unit id="Yli2Xaf" resname="Temps moyen de réponse :">
+        <source>Temps moyen de réponse :</source>
+        <target>Average answer time :</target>
+      </trans-unit>
+      <trans-unit id="BfcXUkX" resname="secondes">
+        <source>secondes</source>
+        <target>seconds</target>
+      </trans-unit>
+      <trans-unit id="Ac.OTzg" resname="Donne ce lien à tes amis pour qu'ils aient accès au recap de cette partie&#10;                            !">
+        <source>Donne ce lien à tes amis pour qu'ils aient accès au recap de cette partie
+                            !</source>
+        <target>Share this link with your firends so they can access this game's results !</target>
+      </trans-unit>
+      <trans-unit id="A7so3_y" resname="Copie">
+        <source>Copie</source>
+        <target>Copy</target>
+      </trans-unit>
+      <trans-unit id="q1CJdYU" resname="Question n°">
+        <source>Question n°</source>
+        <target>Question n°</target>
+      </trans-unit>
+      <trans-unit id="yEhybQT" resname="La réponse était :">
+        <source>La réponse était :</source>
+        <target>The answer is :</target>
+      </trans-unit>
+      <trans-unit id="olCiiiF" resname="Votre Réponse :">
+        <source>Votre Réponse :</source>
+        <target>Your answer :</target>
+      </trans-unit>
+      <trans-unit id="jMy033n" resname="Vous avez répondu en">
+        <source>Vous avez répondu en</source>
+        <target>You answered in</target>
+      </trans-unit>
+      <trans-unit id="jKj.DES" resname="secondes ce qui&#10;                                vous a rapporté">
+        <source>secondes ce qui
+                                vous a rapporté</source>
+        <target>seconds which scored</target>
+      </trans-unit>
+      <trans-unit id="4Nm2_Mv" resname="points !">
+        <source>points !</source>
+        <target>points !</target>
+      </trans-unit>
+      <trans-unit id="ahJUmln" resname="Vous avez répondu juste à">
+        <source>Vous avez répondu juste à</source>
+        <target>You answered correctly to</target>
+      </trans-unit>
+      <trans-unit id="R78jQD5" resname="drapeaux">
+        <source>drapeaux</source>
+        <target>flags</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

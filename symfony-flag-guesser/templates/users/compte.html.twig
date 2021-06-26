@@ -5,16 +5,16 @@
 {% block body %}
 <p style="color:green;">
     {% if (app.user!=null) and (app.user.getId() == user.getId()) %}
-    C'est votre compte et vous êtes connecté !
+    {%trans%}C'est votre compte et vous êtes connecté !{%endtrans%}
     <hr>
-    <a class="btn btn-success position-absolute bottom-0 end-0" data-bs-toggle="collapse" href="#Share-collapse" role="button"
-        aria-expanded="false" aria-controls="Share-collapse">
-        <i class="fas fa-share"></i> Partager
+    <a class="btn btn-success position-absolute bottom-0 end-0" data-bs-toggle="collapse" href="#Share-collapse"
+        role="button" aria-expanded="false" aria-controls="Share-collapse">
+        <i class="fas fa-share"></i>{%trans%}Partager{%endtrans%}
     </a>
 <div class="collapse m-5 position-absolute bottom-0 end-0" id="Share-collapse">
     <div class="card">
         <div class="card-header">
-            <p>Donne ce lien à tes amis pour qu'ils voient tes meilleures parties !
+            <p>{%trans%}Donne ce lien à tes amis pour qu'ils voient tes meilleures parties !{%endtrans%}
                 <a class="btn btn-close" data-toggle="collapse" href="#Share-collapse" role="button"
                     aria-expanded="false" aria-controls="Share-collapse"></a>
             </p>
@@ -28,7 +28,7 @@
     </div>
 </div>
 {% else %}
-Vous consultez le profile de quelqu'un d'autre
+{%trans%}Vous consultez le profile de quelqu'un d'autre{%endtrans%}
 {% endif %}
 </p>
 <h1>{{ user.getPseudo() }}</h1>
@@ -36,7 +36,7 @@ Vous consultez le profile de quelqu'un d'autre
 <h2>{%trans%}Meilleur score{%endtrans%} : {{ user.getMaxScore() }}</h2>
 <hr>
 <br>
-<h2>{% trans %} historique {% endtrans %}</h2>
+<h2>{% trans %}Historique des 10 dernières parties{% endtrans %}</h2>
 <table class="table table-hover">
     <thead>
         <th scope="col">Id</th>

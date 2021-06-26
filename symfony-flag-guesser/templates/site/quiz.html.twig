@@ -73,42 +73,42 @@
     <div class="btn-group me-2" role="group" aria-label="First group">
         <input type="checkbox" class="btn-check" id="btncheck1" name="Amérique" autocomplete="off">
         <label class="btn-america  btn-outline-success" id='choice' for="btncheck1">
-            <p class="display-6 fw-bold" id='continent'>Amérique</p>
+            <p class="display-6 fw-bold" id='continent'>{%trans%}Amérique{%endtrans%}</p>
         </label>
         <input type="checkbox" class="btn-check" id="btncheck2" name="Europe" autocomplete="off">
         <label class="btn-europe  btn-outline-success" id='choice' for="btncheck2">
-            <p class="display-6 fw-bold" id='continent'>Europe</p>
+            <p class="display-6 fw-bold" id='continent'>{%trans%}Europe{%endtrans%}</p>
         </label>
         <input type="checkbox" class="btn-check" id="btncheck3" name="Asie" autocomplete="off">
         <label class="btn-asia  btn-outline-success" id='choice' for="btncheck3">
-            <p class="display-6 fw-bold" id='continent'>Asie</p>
+            <p class="display-6 fw-bold" id='continent'>{%trans%}Asie{%endtrans%}</p>
         </label>
     </div>
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups"></div>
     <div class="btn-group" role="group" aria-label="First group">
         <input type="checkbox" class="btn-check" id="btncheck4" name="US States" autocomplete="off">
         <label class="btn-us  btn-outline-success" id='choice' id='us states' for="btncheck4">
-            <p class="display-6 fw-bold" id='continent'>US States</p>
+            <p class="display-6 fw-bold" id='continent'>{%trans%}US States{%endtrans%}</p>
         </label>
         <input type="checkbox" class="btn-check" id="btncheck5" name="Afrique" autocomplete="off">
         <label class="btn-africa  btn-outline-success" id='choice' for="btncheck5">
-            <p class="display-6 fw-bold" id='continent'>Afrique</p>
+            <p class="display-6 fw-bold" id='continent'>{%trans%}Afrique{%endtrans%}</p>
         </label>
         <input type="checkbox" class="btn-check" id="btncheck6" name="Océanie" autocomplete="off">
         <label class="btn-oceania  btn-outline-success" id='choice' for="btncheck6">
-            <p class="display-6 fw-bold" id='continent'>Océanie</p>
+            <p class="display-6 fw-bold" id='continent'>{%trans%}Océanie{%endtrans%}</p>
         </label>
     </div>        
     </div>
 
-    <button type="button" class="btn btn-info" id='world'>Tout sélectionner</button>
+    <button type="button" class="btn btn-info" id='world'>{%trans%}Tout sélectionner{%endtrans%}</button>
     <br><br>
         
     <div class="d-grid gap-2 col-6 mx-auto">
             {% if is_granted('ROLE_USER')%}
-            <button class="btn btn-primary" type="submit" onclick="myFunction( '{{ app.user.getPseudo() }}' )">PLAY RANKED</button>
+            <button class="btn btn-primary" type="submit" onclick="myFunction( '{{ app.user.getPseudo() }}' )">{%trans%}JOUER{%endtrans%}</button>
             {% else %}
-            <button class="btn btn-primary" type="submit" onclick="myFunction()">PLAY</button>
+            <button class="btn btn-primary" type="submit" onclick="myFunction()">{%trans%}JOUER{%endtrans%}</button>
             {% endif %}
 
     </div>

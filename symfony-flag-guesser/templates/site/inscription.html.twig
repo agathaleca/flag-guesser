@@ -6,8 +6,8 @@
 {% block body %}
 
 
-    <h1>Inscription réussie !</h1>
+    <h1>{%trans%}Inscription réussie !{%endtrans%}</h1>
 
-    <p>Vous pouvez maintenant vous <a href="{{ path('app_login')}}">connecter</a>.</p>
+    <p>{%trans%}Vous pouvez maintenant vous {%endtrans%}<a href="{{ path('app_login')}}">{%trans%}connecter{%endtrans%}</a>.</p>
 
 {% endblock %}
