@@ -12,7 +12,7 @@
                 {% if user is not null %}
                 {%trans%}Réalisé par {%endtrans%} {{ user.getPseudo() }}<br>
                 {% endif %}
-                {%trans%}Temps moyen de réponse : {%endtrans%}{{ temps_moyen }} {%trans%}secondes{%endtrans%}</p>
+                {%trans%}Temps moyen de réponse : {%endtrans%} {{ temps_moyen }} {%trans%}secondes{%endtrans%}</p>
             <a class="btn btn-success" data-bs-toggle="collapse" href="#Share-collapse" role="button"
                 aria-expanded="false" aria-controls="Share-collapse">
                 <i class="fas fa-share"></i>{%trans%}Partager{%endtrans%}
@@ -76,14 +76,18 @@
                         <div class="col-8 border-start border-secondary">
                             <div class="card-header">{%trans%}Question n°{%endtrans%}{{i}}</div>
                             <div clas="card-body">
+                                {%if app.request.getLocale() is same as('fr')%}
                                 <p>{%trans%}La réponse était : {%endtrans%} {{question.getFlag().getNomFr()}}</p>
+                                {%else%}
+                                <p>{%trans%}La réponse était : {%endtrans%} {{question.getFlag().getNomEn()}}</p>
+                                {%endif%}
                                 <p>{%trans%}Votre Réponse : {%endtrans%} {% if question.getPlayerAnswer() != "_"%}
                                     {{question.getPlayerAnswer()}}
                                     {%endif%}</p>
                             </div>
                             <div class="card-footer">{%trans%}Vous avez répondu en {%endtrans%}
                                 {{question.getTimeAnswered().diff(question.getTimeAsked()).s}} {%trans%}secondes ce qui
-                                vous a rapporté {%endtrans%}{{question.getScore()}} {%trans%} points !{%endtrans%}</div>
+                                vous a rapporté {%endtrans%} {{question.getScore()}} {%trans%} points !{%endtrans%}</div>
                         </div>
                     </div>
                 </div>

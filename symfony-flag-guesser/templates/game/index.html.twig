@@ -220,14 +220,14 @@ requestAnimationFrame(interval);
         //console.log(temp);
         bar.style = temp;
         if (temps <= 0) {
-            clearTimeout(intervalID);
+            // clearTimeout(intervalID);
             reroute();
         }
         // else {
         //     setTimeout(interval, 1000);
         // }
     };
-    $intervalID = setInterval(interval, 1000);
+    setInterval(interval, 1000);
 
     // METHODE SETINTERVAL
     /*

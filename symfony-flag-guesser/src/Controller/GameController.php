@@ -6,6 +6,7 @@ use App\Repository\GameRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class GameController extends AbstractController
 {
@@ -13,7 +14,7 @@ class GameController extends AbstractController
      * @Route ("/question/{id_game}/{ans_player}",name="question")
      */
 
-    public function checkQuestion(GameRepository $gameRepository,int $id_game, string $ans_player) : Response
+    public function checkQuestion(GameRepository $gameRepository,int $id_game, string $ans_player, Request $request) : Response
     {
         // manager
         $em = $this->getDoctrine()->getManager();
@@ -22,6 +23,7 @@ class GameController extends AbstractController
         $current_question = $quiz->getCurrentQuestion();
         // si la réponse est la bonne 
         // réponse sans les "-"
+        if ($request->getSession()->get('_locale')=='fr') {
         $true_answer_trans=str_replace(array(
                 '-',' ',
                 'à', 'â', 'ä', 'á', 'ã', 'å',
@@ -44,6 +46,31 @@ class GameController extends AbstractController
             ),
             $current_question->getFlag()->getNomFr()
         );
+        }
+        else {
+            $true_answer_trans=str_replace(array(
+                '-',' ',
+                'à', 'â', 'ä', 'á', 'ã', 'å',
+                'î', 'ï', 'ì', 'í', 
+                'ô', 'ö', 'ò', 'ó', 'õ', 'ø', 
+                'ù', 'û', 'ü', 'ú', 
+                'é', 'è', 'ê', 'ë', 
+                'ç', 'ÿ', 'ñ',
+                'Î', 'É', 'Å'
+            ),
+            array(
+                '_','_',
+                'a', 'a', 'a', 'a', 'a', 'a', 
+                'i', 'i', 'i', 'i', 
+                'o', 'o', 'o', 'o', 'o', 'o', 
+                'u', 'u', 'u', 'u', 
+                'e', 'e', 'e', 'e', 
+                'c', 'y', 'n',
+                'I','E','A'
+            ),
+            $current_question->getFlag()->getNomEn()
+        );
+        }
         $ans_player_trans=str_replace(array(
                 '-',' ',
                 'à', 'â', 'ä', 'á', 'ã', 'å',
