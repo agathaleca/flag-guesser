@@ -3,160 +3,157 @@
 
 
 {% block head %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    {#<link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">#}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-   
-    
-    <title>Quiz</title>
-    
-    <style>
-        #choice {
-            height: 256px;
-            width: 256px;
-            border: 2px solid rgb(0, 0, 0);
-            border-radius:10px;
-        }
-        .btn-america {
-            background-image: url('https://cdn3.iconfinder.com/data/icons/countries-and-continents/512/America-512.png');
-            background-size: cover;
-        }
-        .btn-asia {
-            background-image: url('https://cdn1.iconfinder.com/data/icons/continents-icons/512/asia-512.png');
-            background-size: cover;
-        }
-        .btn-europe {
-            background-image: url('https://cdn1.iconfinder.com/data/icons/continents-icons/512/europe-512.png');
-            background-size: cover;
-        }
-        .btn-africa {
-            background-image: url('https://cdn1.iconfinder.com/data/icons/continents-icons/512/africa-512.png');
-            background-size: cover;
-        }
-        .btn-oceania {
-            background-image: url('https://cdn1.iconfinder.com/data/icons/continents-icons/512/australia-512.png');
-            background-size: cover;
-        }
-        .btn-us {
-            background-image: url('https://cdn3.iconfinder.com/data/icons/us-states/512/USA-256.png');
-            background-size: cover;
-        }        
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        @media screen and (max-width: 992px) {
-            #choice {
-                height: 180;
-                width: 180;
-                border: 2px solid rgb(0, 0, 0);
-                border-radius:30px;
-            }
+{#
+<link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">#}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+
+<title>Quiz</title>
+
+<style>
+    @media screen and (max-width: 0px) {
+        #choice {
+            height: 180;
+            width: 180;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 30px;
         }
-        @media screen and (max-width: 768px) {
-            #choice {
-                height: 128;
-                width: 128;
-                border: 2px solid rgb(0, 0, 0);
-                border-radius:20px;
-            }
-        }</style>
+    }
+
+    #choice {
+        border: 2px solid rgb(100, 100, 100);
+        border-radius: 20px;
+    }
+</style>
 
 {% endblock %}
 {% block body %}
 
-    <h1>{% trans %}quiz.page{% endtrans %}</h1>
+<div class="container-xl my-5" id="maps">
+    <h2 class='display-4'>{% trans %}quiz.pick{% endtrans %}</h2>
 
-    <div class="container my-5" id="maps">
-        <h2 class='display-4'>{% trans %}quiz.pick{% endtrans %}</h2>
-    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups"></div>
-    <div class="btn-group me-2" role="group" aria-label="First group">
-        <input type="checkbox" class="btn-check" id="btncheck1" name="Amérique" autocomplete="off">
-        <label class="btn-america  btn-outline-success" id='choice' for="btncheck1">
-            <p class="display-6 fw-bold" id='continent'>{%trans%}Amérique{%endtrans%}</p>
-        </label>
-        <input type="checkbox" class="btn-check" id="btncheck2" name="Europe" autocomplete="off">
-        <label class="btn-europe  btn-outline-success" id='choice' for="btncheck2">
-            <p class="display-6 fw-bold" id='continent'>{%trans%}Europe{%endtrans%}</p>
-        </label>
-        <input type="checkbox" class="btn-check" id="btncheck3" name="Asie" autocomplete="off">
-        <label class="btn-asia  btn-outline-success" id='choice' for="btncheck3">
-            <p class="display-6 fw-bold" id='continent'>{%trans%}Asie{%endtrans%}</p>
-        </label>
-    </div>
-    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups"></div>
-    <div class="btn-group" role="group" aria-label="First group">
-        <input type="checkbox" class="btn-check" id="btncheck4" name="US States" autocomplete="off">
-        <label class="btn-us  btn-outline-success" id='choice' id='us states' for="btncheck4">
-            <p class="display-6 fw-bold" id='continent'>{%trans%}US States{%endtrans%}</p>
-        </label>
-        <input type="checkbox" class="btn-check" id="btncheck5" name="Afrique" autocomplete="off">
-        <label class="btn-africa  btn-outline-success" id='choice' for="btncheck5">
-            <p class="display-6 fw-bold" id='continent'>{%trans%}Afrique{%endtrans%}</p>
-        </label>
-        <input type="checkbox" class="btn-check" id="btncheck6" name="Océanie" autocomplete="off">
-        <label class="btn-oceania  btn-outline-success" id='choice' for="btncheck6">
-            <p class="display-6 fw-bold" id='continent'>{%trans%}Océanie{%endtrans%}</p>
-        </label>
-    </div>        
-    </div>
+    <div class="row gy-3">
+        <div class="d-grid gap-2 col-4 mx-auto">
+            <input type="checkbox" class="btn-check" id="btncheck1" name="Amérique" autocomplete="off">
+            <label class="btn-america btn-outline-success" id='choice' for="btncheck1">
+                <img class='img-fluid'
+                    src="https://cdn3.iconfinder.com/data/icons/countries-and-continents/512/America-512.png"
+                    id='btn-america'>
+                <p class="h3 fw-bold" id='continent'>{%trans%}Amérique{%endtrans%}</p>
+            </label>
+        </div>
+        <div class="d-grid gap-2 col-4 mx-auto">
+            <input type="checkbox" class="btn-check" id="btncheck2" name="Europe" autocomplete="off">
+            <label class="btn-europe btn-outline-success" id='choice' for="btncheck2">
+                <img class='img-fluid' src="https://cdn1.iconfinder.com/data/icons/continents-icons/512/europe-512.png"
+                    id='btn-europe'>
+                <p class="h3 fw-bold" id='continent'>{%trans%}Europe{%endtrans%}</p>
+            </label>
+        </div>
+        <div class="d-grid gap-2 col-4 mx-auto">
+            <input type="checkbox" class="btn-check" id="btncheck3" name="Asie" autocomplete="off">
+            <label class="btn-asia btn-outline-success" id='choice' for="btncheck3">
+                <img class='img-fluid' src="https://cdn1.iconfinder.com/data/icons/continents-icons/512/asia-512.png"
+                    id='btn-asia'>
+                <p class="h3 fw-bold" id='continent'>{%trans%}Asie{%endtrans%}</p>
+            </label>
+        </div>
 
-    <button type="button" class="btn btn-info" id='world'>{%trans%}Tout sélectionner{%endtrans%}</button>
-    <br><br>
-        
-    <div class="d-grid gap-2 col-6 mx-auto">
+        <div class="d-grid gap-2 col-4 mx-auto">
+            <input type="checkbox" class="btn-check" id="btncheck4" name="US States" autocomplete="off">
+            <label class="btn-us  btn-outline-success" id='choice' id='us states' for="btncheck4">
+                <img class="img-fluid"
+                    src="https://cdn4.iconfinder.com/data/icons/continental-united-states-highlights/101/Massachusetts-512.png"
+                    id='btn-us'>
+                <p class="h3 fw-bold" id='continent'>{%trans%}US States{%endtrans%}</p>
+            </label>
+        </div>
+        <div class="d-grid gap-2 col-4 mx-auto">
+            <input type="checkbox" class="btn-check" id="btncheck5" name="Afrique" autocomplete="off">
+            <label class="btn-africa  btn-outline-success" id='choice' for="btncheck5">
+                <img class="img-fluid" src="https://cdn1.iconfinder.com/data/icons/continents-icons/512/africa-512.png"
+                    id='btn-africa'>
+                <p class="h3 fw-bold" id='continent'>{%trans%}Afrique{%endtrans%}</p>
+            </label>
+        </div>
+        <div class="d-grid gap-2 col-4 mx-auto">
+            <input type="checkbox" class="btn-check" id="btncheck6" name="Océanie" autocomplete="off">
+            <label class="btn-oceania  btn-outline-success" id='choice' for="btncheck6">
+                <img class="img-fluid"
+                    src="https://cdn1.iconfinder.com/data/icons/continents-icons/512/australia-512.png"
+                    id='btn-oceania'>
+                <p class="h3 fw-bold" id='continent'>{%trans%}Océanie{%endtrans%}</p>
+            </label>
+        </div>
+    </div>
+    <div class="row m-5 justify-content-center">
+        <div class="d-grid gap-2 col-2">
+            <button type="button" class="btn btn-info" id='world'>{%trans%}Tout sélectionner{%endtrans%}</button>
+        </div>
+        <div class="d-grid gap-2 col-3">
             {% if is_granted('ROLE_USER')%}
-            <button class="btn btn-primary" type="submit" onclick="myFunction( '{{ app.user.getPseudo() }}' )">{%trans%}JOUER{%endtrans%}</button>
+            <button class="btn btn-primary" type="submit"
+                onclick="myFunction( '{{ app.user.getPseudo() }}' )">{%trans%}JOUER{%endtrans%}</button>
             {% else %}
-            <button class="btn btn-primary" type="submit" onclick="myFunction()">{%trans%}JOUER{%endtrans%}</button>
+            <button class="btn btn-primary" type="submit" onclick="myFunction()">
+                <i class="fas fa-dot-circle fa-fw text-secondary"></i>{%trans%}JOUER{%endtrans%}
+            </button>
             {% endif %}
-
+        </div>
     </div>
+</div>
 
-    <script>
-        const btn = document.querySelector('#world');
-        btn.onclick = checkAll;
-        function check(checked = true) {
-            const cbs = document.querySelectorAll('input[class="btn-check"]');
-            cbs.forEach((cb) => {
-                cb.checked = checked;
-            });
-        }
-        function checkAll() {
-            check();
-            // reassign click event handler
-            this.onclick = uncheckAll;
-        }
-        function uncheckAll() {
-            check(false);
-            // reassign click event handler
-            this.onclick = checkAll;
-        }
-        function myFunction($user_pseudo="anon"){
-            var checkedBoxes = getCheckedBoxes();
-            var route = "../flag/";
-            route = route.concat(checkedBoxes);
-            route = route.concat("/");
-            route = route.concat($user_pseudo);
-            window.location.replace(route);
-        };
+<script>
+    const btn = document.querySelector('#world');
+    btn.onclick = checkAll;
+    function check(checked = true) {
+        const cbs = document.querySelectorAll('input[class="btn-check"]');
+        cbs.forEach((cb) => {
+            cb.checked = checked;
+        });
+    }
+    function checkAll() {
+        check();
+        // reassign click event handler
+        this.onclick = uncheckAll;
+    }
+    function uncheckAll() {
+        check(false);
+        // reassign click event handler
+        this.onclick = checkAll;
+    }
+    function myFunction($user_pseudo = "anon") {
+        var checkedBoxes = getCheckedBoxes();
+        var route = "../flag/";
+        route = route.concat(checkedBoxes);
+        route = route.concat("/");
+        route = route.concat($user_pseudo);
+        window.location.replace(route);
+    };
 
-        function getCheckedBoxes() {
-            var checkboxes = document.querySelectorAll('input[class="btn-check"]');
-            var checkboxesChecked = "";
-            // loop over them all
-            for (var i=0; i<checkboxes.length; i++) {
-                // And stick the checked ones onto an array...
-                if (checkboxes[i].checked) {
-                    checkboxesChecked = checkboxesChecked.concat(checkboxes[i].name);
-                    checkboxesChecked = checkboxesChecked.concat("-");
-                }
+    function getCheckedBoxes() {
+        var checkboxes = document.querySelectorAll('input[class="btn-check"]');
+        var checkboxesChecked = "";
+        // loop over them all
+        for (var i = 0; i < checkboxes.length; i++) {
+            // And stick the checked ones onto an array...
+            if (checkboxes[i].checked) {
+                checkboxesChecked = checkboxesChecked.concat(checkboxes[i].name);
+                checkboxesChecked = checkboxesChecked.concat("-");
             }
-            // Return the array if it is non-empty, or null
-            return checkboxesChecked.length > 0 ? checkboxesChecked : null;
         }
+        // Return the array if it is non-empty, or null
+        return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+    }
 
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
 
 {% endblock %}
