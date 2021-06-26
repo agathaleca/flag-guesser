@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Question;
+use ContainerQdtLTTy\getGameControllerService;
 
 /**
  * @ORM\Entity(repositoryClass=GameRepository::class)
@@ -175,10 +176,14 @@ class Game
     public function getMoyTemps(): ?float
     {
         $total_time=0;
+        $brep=0;
         foreach ($this->getQuestions() as $question) {
-            $total_time += $question->getTimeAnswered()->diff($question->getTimeAsked())->s;
+            if($question->getScore() > 0){
+                $total_time+= $question->getTimeAnswered()->diff($question->getTimeAsked())->s;
+                $brep +=1;
+            }
         }
-        return ($total_time/count($this->getQuestions()));
+        return (round($total_time/$brep,1));
     }
 
 }

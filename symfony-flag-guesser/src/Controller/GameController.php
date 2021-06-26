@@ -185,6 +185,7 @@ class GameController extends AbstractController
                 "game_score" => $score,
                 "classement" => $classement,
                 "temps_moyen" => $temps_moyen,
+                "cat" => $quiz->getCategory(),
                 "user" => $quiz->getPlayedBy()
             ]);
         }
