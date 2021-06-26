@@ -3,97 +3,97 @@
 {% block title %}Hello GameController!{% endblock %}
 
 {% block body %}
+
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    #bar {
-    -webkit-transition: none !important;
-    transition: none !important;
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
     }
 </style>
-
-
 
 <div class="container-md">
     <div class="row">
         <div class="col-11">
-            <img class="img-fluid mb-5" style="max-height:500px;" src="https://flagcdn.com/{{ current_question.getFlag().getIso() }}.svg">
+            <img class="img-fluid mb-5" style="max-height:500px;"
+                src="https://flagcdn.com/{{ current_question.getFlag().getIso() }}.svg">
+            <div class="progress">
+                <div class="progress-bar bg-success slower" id='bar' aria-valuenow="15" aria-valuemin="0"
+                    aria-valuemax="15" role="progressbar"></div>
+            </div>
             <form id="rep">
                 <input class="form-control" type="text" name="Answer" id="ans" autofocus=true>
-            </form>       
-            <div class="progress">
-                <div class="progress-bar bg-success slower" id='bar' aria-valuenow="15" aria-valuemin="0" aria-valuemax="15"
-                    role="progressbar"></div>
-            </div>
-
+            </form>
         </div>
 
         <div class="col-1 fs-3">
-                {% for q in questions%}
-                    <div class="row-sm">
-                    {% if q.getAsked() == 1 %}
-                        <i class="fas fa-stopwatch fa-fw text-warning" width=300></i>
-                    {%elseif q.getScore() > 0%}
-                        <i class="fas fa-check-circle fa-fw text-success"></i>
-
-                    {%elseif q.getAsked() == 0 %}
-                        <i class="fas fa-dot-circle fa-fw text-secondary"></i>
-                    {%else%}
-                        <i class="fas fa-times-circle fa-fw text-danger"></i>
-                    {% endif %}
-                    </div>
-                {% endfor %}
+            {% for q in questions%}
+            <div class="row-sm">
+                {% if q.getAsked() == 1 %}
+                <i class="fas fa-stopwatch fa-fw text-warning" width=300></i>
+                {%elseif q.getScore() > 0%}
+                <i class="fas fa-check-circle fa-fw text-success"></i>
+                {%elseif q.getAsked() == 0 %}
+                <i class="fas fa-dot-circle fa-fw text-secondary"></i>
+                {%else%}
+                <i class="fas fa-times-circle fa-fw text-danger"></i>
+                {% endif %}
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
+
 <script>
     function reroute() {
         var answer = document.getElementById("ans").value;
-        if (answer == ""){
+        if (answer == "") {
             answer = "_"
         }
         var route = "/question/{id_game}/{ans_player}";
-        route = route.replace("{id_game}",{{id_game}});
-        route = route.replace("{ans_player}",answer);
-        window.location.replace(route);
+        route = route.replace("{id_game}", {{ id_game }});
+    route = route.replace("{ans_player}", answer);
+    window.location.replace(route);
     };
 
     var ansform = document.getElementById('rep')
-    ansform.addEventListener('submit', function(){
+    ansform.addEventListener('submit', function () {
         event.preventDefault();
         reroute();
     });
-    
+
     var offset = 0;
     function calcOffset() {
         // var xmlhttp = new XMLHttpRequest();
         // xmlhttp.open("GET", "./{{id_game}}", false);
         // xmlhttp.send();
-
         // var dateStr = xmlhttp.getResponseHeader('Date');
         // console.log(dateStr);
         var now = new Date;
-        var utc_timestamp = Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
-        now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
+        var utc_timestamp = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),
+            now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
         var localMillisUTC = Date.parse(new Date().toUTCString());
         // console.log('utc_timestamp=' + utc_timestamp);
         // console.log('localMillisUTC=' + localMillisUTC);
-        offset = utc_timestamp -  localMillisUTC;
+        offset = utc_timestamp - localMillisUTC;
         // console.log('offset=' + offset);
         return offset;
     }
 
     function getServerTime() {
         var date = new Date();
-
         date.setTime(date.getTime() + calcOffset());
         date = Date.parse(date.toString());
         // console.log(date)
         return date;
     }
     ;
-    
-    
     var bar = document.getElementById('bar');
     var width = "width: ";
     var countdown = Date.parse("{{ current_question.getTimeAskedString() }}");
@@ -174,30 +174,30 @@
             }
         }, 100);
         *//*
-        var temp = width.concat(temps);
-        var temp = temp.concat('%');
-        console.log(temp);
-        bar.style = temp;
-        if (temps > 0) {
-            requestAnimationFrame(interval);
-        }
-        else {
-            window.cancelAnimationFrame(requestID);
-            reroute();
-        }
+    var temp = width.concat(temps);
+    var temp = temp.concat('%');
+    console.log(temp);
+    bar.style = temp;
+    if (temps > 0) {
+        requestAnimationFrame(interval);
     }
-    requestAnimationFrame(interval);
-    */
+    else {
+        window.cancelAnimationFrame(requestID);
+        reroute();
+    }
+}
+requestAnimationFrame(interval);
+*/
     // METHODE SETTIMEOUT
-    
+
     function interval() {
         var utc_timestamp = getServerTime();
         // console.log('hi ! it is ' + utc_timestamp)
         // console.log("countdown =" + countdown);
         // console.log(utc_timestamp-countdown);
-        var final = (utc_timestamp-countdown).toString().slice(2, 4);
+        var final = (utc_timestamp - countdown).toString().slice(2, 4);
         // console.log('final' + final);
-        var temps = 100-final*100/15+100/15;
+        var temps = 100 - final * 100 / 15 + 100 / 15;
         //console.log('temps: ' + temps);
         /*var j = 0;
         var n = 0
@@ -219,8 +219,7 @@
         var temp = temp.concat('%');
         //console.log(temp);
         bar.style = temp;
-        
-        if (temps<=0) {
+        if (temps <= 0) {
             //clearTimeout(requestID);
             reroute();
         }
@@ -229,7 +228,7 @@
         // }
     };
     setInterval(interval, 1000);
-    
+
     // METHODE SETINTERVAL
     /*
     interval = setInterval(function() {
@@ -257,15 +256,15 @@
             }
         }, 100);
         *//*
-        var temp = width.concat(temps);
-        var temp = temp.concat('%');
-        console.log(temp);
-        bar.style = temp;
-        if (temps<=0) {
-            clearInterval(interval);
-            reroute();
-            }
-    }, 1000);
-    */
+    var temp = width.concat(temps);
+    var temp = temp.concat('%');
+    console.log(temp);
+    bar.style = temp;
+    if (temps<=0) {
+        clearInterval(interval);
+        reroute();
+        }
+}, 1000);
+*/
 </script>
 {% endblock %}
