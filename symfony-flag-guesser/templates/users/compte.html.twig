@@ -3,42 +3,71 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-
-    <p style="color:green;">
+<p style="color:green;">
     {% if (app.user!=null) and (app.user.getId() == user.getId()) %}
-        C'est votre compte et vous êtes connecté !
-        <hr>
-        {{ form(form) }}
-    {% else %}
-        Vous consultez le profile de quelqu'un d'autre
-    {% endif %}
-    </p>
-
-    <h1>{{ user.getPseudo() }}</h1>
-
-    <br>
-    <h2>{%trans%}Meilleur score{%endtrans%} : {{ user.getMaxScore() }}</h2>
-
+    C'est votre compte et vous êtes connecté !
     <hr>
-    
-    <br>
-    <h2>{% trans %} historique {% endtrans %}</h2>
-    <table class="table table-hover">
-        <thead>
-            <th scope="col">Id</th>
-            <th scope="col">Catégorie</th>
-            <th scope="col">Score</th>
-        </thead>
-        <tbody>
-            {% for game in user.getGames()|slice (1,10) %}
-            <tr class="table-active">
-                <td scope="row">{{ game.getId() }} </td>
-                <td scope="row">{{ game.getCategory() }} </td>
-                <td scope="row">{{ game.getTotalScore() }} </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <a class="btn btn-success position-absolute bottom-0 end-0" data-bs-toggle="collapse" href="#Share-collapse" role="button"
+        aria-expanded="false" aria-controls="Share-collapse">
+        <i class="fas fa-share"></i> Partager
+    </a>
+<div class="collapse m-5 position-absolute bottom-0 end-0" id="Share-collapse">
+    <div class="card">
+        <div class="card-header">
+            <p>Donne ce lien à tes amis pour qu'ils voient tes meilleures parties !
+                <a class="btn btn-close" data-toggle="collapse" href="#Share-collapse" role="button"
+                    aria-expanded="false" aria-controls="Share-collapse"></a>
+            </p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-10"><input type="text" class="form-control" id="Share-link" value=""></div>
+                <div class="col-2"><button type="button" class="btn btn-secondary" onclick="cp()">Copy</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+Vous consultez le profile de quelqu'un d'autre
+{% endif %}
+</p>
+<h1>{{ user.getPseudo() }}</h1>
+<br>
+<h2>{%trans%}Meilleur score{%endtrans%} : {{ user.getMaxScore() }}</h2>
+<hr>
+<br>
+<h2>{% trans %} historique {% endtrans %}</h2>
+<table class="table table-hover">
+    <thead>
+        <th scope="col">Id</th>
+        <th scope="col">Catégorie</th>
+        <th scope="col">Score</th>
+    </thead>
+    <tbody>
+        {% for game in user.getGames()|slice (1,10) %}
+        <tr class="table-active">
+            <td scope="row">{{ game.getId() }} </td>
+            <td scope="row">{{ game.getCategory() }} </td>
+            <td scope="row">{{ game.getTotalScore() }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
+<script>
+    (function () {
+        document.getElementById("Share-link").value = window.location.href;
+    })();
+    function cp() {
+        /* Get the text field */
+        var copyText = document.getElementById("Share-link");
 
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+    }
+</script>
 {% endblock %}

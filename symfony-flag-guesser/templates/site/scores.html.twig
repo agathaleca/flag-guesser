@@ -51,9 +51,9 @@
     <div class="card-header" id="headingTwo">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="false" aria-controls="collapseTwo">
-        {%trans%}Europe{%endtrans%}
-      </button>
+          aria-expanded="false" aria-controls="collapseTwo">
+          {%trans%}Europe{%endtrans%}
+        </button>
       </h2>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
@@ -86,9 +86,9 @@
     <div class="card-header" id="headingThree">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
-        aria-expanded="false" aria-controls="collapseThree">
-        {%trans%}Asie{%endtrans%}
-      </button>
+          aria-expanded="false" aria-controls="collapseThree">
+          {%trans%}Asie{%endtrans%}
+        </button>
       </h2>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
@@ -104,7 +104,8 @@
           <tbody>
             {% for game in classement_asie %}
             <tr class="table-active">
-              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a>
+              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
+                  game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
             </tr>
@@ -120,9 +121,9 @@
     <div class="card-header" id="headingFour">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
-        aria-expanded="false" aria-controls="collapseFour">
-        {%trans%}Amérique{%endtrans%}
-      </button>
+          aria-expanded="false" aria-controls="collapseFour">
+          {%trans%}Amérique{%endtrans%}
+        </button>
       </h2>
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
@@ -138,7 +139,8 @@
           <tbody>
             {% for game in classement_amerique %}
             <tr class="table-active">
-              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a>
+              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
+                  game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
             </tr>
@@ -154,9 +156,9 @@
     <div class="card-header" id="headingFive">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
-        aria-expanded="false" aria-controls="collapseFive">
-        {%trans%}Afrique{%endtrans%}
-      </button>
+          aria-expanded="false" aria-controls="collapseFive">
+          {%trans%}Afrique{%endtrans%}
+        </button>
       </h2>
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
@@ -172,7 +174,8 @@
           <tbody>
             {% for game in classement_afrique %}
             <tr class="table-active">
-              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a>
+              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
+                  game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
             </tr>
@@ -188,9 +191,9 @@
     <div class="card-header" id="headingSix">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix"
-        aria-expanded="false" aria-controls="collapseSix">
-        {%trans%}Océanie{%endtrans%}
-      </button>
+          aria-expanded="false" aria-controls="collapseSix">
+          {%trans%}Océanie{%endtrans%}
+        </button>
       </h2>
     </div>
     <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
@@ -206,7 +209,8 @@
           <tbody>
             {% for game in classement_oceanie %}
             <tr class="table-active">
-              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a>
+              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
+                  game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
             </tr>
@@ -222,9 +226,9 @@
     <div class="card-header" id="headingSeven">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven"
-        aria-expanded="false" aria-controls="collapseSeven">
-        {%trans%}US States{%endtrans%}
-      </button>
+          aria-expanded="false" aria-controls="collapseSeven">
+          {%trans%}US States{%endtrans%}
+        </button>
       </h2>
     </div>
     <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
@@ -240,7 +244,8 @@
           <tbody>
             {% for game in classement_us %}
             <tr class="table-active">
-              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{ game.getPlayedBy().getPseudo()}}</a>
+              <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
+                  game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
             </tr>
