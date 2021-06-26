@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="XSIXQIT" resname="quiz.page">
+        <source>quiz.page</source>
+        <target>c'est la page de quiz</target>
+      </trans-unit>
+      <trans-unit id="lEpNya5" resname="quiz.pick">
+        <source>quiz.pick</source>
+        <target>Choisis au moins une carte pour jouer</target>
+      </trans-unit>
+      <trans-unit id="5QrkIcg" resname="Bienvenue sur le site">
+        <source>Bienvenue sur le site</source>
+        <target>Bienvenue sur le site</target>
+      </trans-unit>
+      <trans-unit id="A6p9wWe" resname="Quiz">
+        <source>Quiz</source>
+        <target>Quiz</target>
+      </trans-unit>
+      <trans-unit id="fXM4s1d" resname="Classement">
+        <source>Classement</source>
+        <target>Classement</target>
+      </trans-unit>
+      <trans-unit id="_1_eksG" resname="Déconnexion">
+        <source>Déconnexion</source>
+        <target>Déconnexion</target>
+      </trans-unit>
+      <trans-unit id="1tLc0AO" resname="compte.historique">
+        <source>compte.historique</source>
+        <target>dernières parties</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

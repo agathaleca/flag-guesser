@@ -29,16 +29,24 @@
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('quiz') }}">Quiz</a>
+                            <a class="nav-link" href="{{ path('quiz') }}">{% trans %} Quiz {% endtrans %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('scores') }}">Classement</a>
+                            <a class="nav-link" href="{{ path('scores') }}">{% trans %} Classement {% endtrans %}</a>
                         </li>
                         {% if is_granted('ROLE_USER') %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_logout') }}" style="color:red;">Déconnexion</a>
+                            <a class="nav-link" href="{{ path('app_logout') }}" style="color:red;">{% trans %} Déconnexion {% endtrans %}</a>
                         </li>
                         {% endif %}
+                    </ul>
+                    <ul class="navbar-nav ml-auto p-2">
+                        {% for locale in locales|filter (locale => locale != app.request.locale) -%}
+                            <li class="nav-item">
+                                <a class="btn btn-outline-warning" href="{{ path('changeLocale', {'locale': locale}) }}"> {{ locale }} </a>
+                            </li>
+                        {% endfor %}
+                        
                     </ul>
                     <form class="d-flex">
                         {% if is_granted('ROLE_USER') %}

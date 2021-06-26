@@ -81,20 +81,22 @@ class UserController extends AbstractController
             $em->persist($user);
             $em->flush();
         }
-        $historique = $translator->trans(
-            'Symfony is great',
-            [],
-            'messages',
-            $user->getLocale()
-        );
+
         
         // $historique = $translator->trans('compte.historique');
         return $this->render('users/compte.html.twig', [
             'user' => $user,
             'best_games' => $gameRepository->findBestUser($user),
             'form'		=> $form->createView(),
-            'history' => $historique
         ]);
     }
 
+    /**
+     * @Route("/changeLocale/{locale}",name="changeLocale")
+     */
+    public function changeLocale($locale, Request $request) {
+        $request->getSession()->set('_locale', $locale);
+
+        return $this->redirect($request->headers->get('referer'));
+    }
 }
