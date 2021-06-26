@@ -36,11 +36,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('scores') }}">{% trans %} Classement {% endtrans %}</a>
                         </li>
-                        {% if is_granted('ROLE_USER') %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_logout') }}" style="color:red;">{% trans %} Déconnexion {% endtrans %}</a>
-                        </li>
-                        {% endif %}
                     </ul>
                     <ul class="navbar-nav ml-auto p-2">
                         {% for locale in locales|filter (locale => locale != app.request.locale) -%}
