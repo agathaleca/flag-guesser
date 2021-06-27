@@ -5,42 +5,41 @@
 {% block body %}
 <style>
   .carousel-fade .carousel-item, .carousel-item img  {
-  max-height: 200px;
+  height: 60vh;
 }
-  .img {
-    text-align: center; 
-  }
-  .span {
-    background-color: rgba(100, 100, 100, 0.5);;
 
+  #nom {
+    background-color: rgba(100, 100, 100, 0.5);
+    border: 1px;
+    border-radius: 10px;
   }
 </style>
 
 <h1>{%trans%}Bienvenue sur le site !{%endtrans%}</h1>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleSlidesOnly" class="carousel slide m-5" data-bs-ride="carousel">
   <div class="carousel-inner">
     {% set n = 1 %}
     {% for flag in flags %}
     {% if n == 1 %}
-    <div class="carousel-item active" data-bs-interval="2000">
-      <img src="https://flagcdn.com/{{ flag.getIso() }}.svg" class="d-block img-fluid" >
-      <div class="carousel-caption d-none d-md-block col-4">
+    <div class="carousel-item active" data-bs-interval="3500">
+      <img src="https://flagcdn.com/{{ flag.getIso() }}.svg" class="img-fluid">
+      <div class="carousel-caption d-none d-md-block">
         {%if app.request.getLocale() is same as('fr')%}
-        <h4 id='caption'>{{flag.getNomFr() | upper}}</h4>
+        <span id='nom' class="display-4 highlight">{{flag.getNomFr() | upper}}</span>
         {%else%}
-        <h4 id='caption'>{{flag.getNomEn() | upper}}</h4>
+        <span id='nom' class="display-4 highlight">{{flag.getNomEn() | upper}}</span>
         {%endif%}
       </div>
     </div>
     {% else %}
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="https://flagcdn.com/{{ flag.getIso() }}.svg" class="d-block img-fluid">
-      <div class="carousel-caption d-none d-md-block col-4">
+    <div class="carousel-item" data-bs-interval="3500">
+      <img src="https://flagcdn.com/{{ flag.getIso() }}.svg" class="img-fluid">
+      <div class="carousel-caption d-none d-md-block" style='text-align: center;'>
         {%if app.request.getLocale() is same as('fr')%}
-        <span class="display-4 highlight">{{flag.getNomFr() | upper}}</span>
+        <span id='nom' class="display-4 highlight">{{flag.getNomFr() | upper}}</span>
         {%else%}
-        <span class="display-4 highlight">{{flag.getNomEn() | upper}}</span>
+        <span id='nom' class="display-4 highlight">{{flag.getNomEn() | upper}}</span>
         {%endif%}
       </div>
     </div>
