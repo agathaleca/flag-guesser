@@ -56,11 +56,14 @@
                 <tbody>
                     {% for game in classement %}
                     <tr>
-                        <td scope="row">
-                            {{
-                            game.getPlayedBy().getPseudo()}}
-                            <a class="btn btn-outline-secondary btn-sm" role="button" href="/compte/{{ game.getPlayedBy().getId() }}">{%trans%} Voir le profil {%endtrans%}</a></td>
-                        <td>{{ game.getGameScore() }}</td>
+                        <td scope="row" class="d-flex justify-content-between">
+                                <span class="ms-5">{{game.getPlayedBy().getPseudo()}}</span>
+                                <div>
+                                    <a class="btn btn-outline-secondary btn-sm" role="button" href="/compte/{{ game.getPlayedBy().getId() }}">{%trans%} Voir le profil {%endtrans%}</a>
+                                    <a class="btn btn-outline-secondary btn-sm" role="button" href="/game/{{ game.getId() }}">{%trans%} Voir la partie {%endtrans%}</a>
+                                </div>
+                        </td>
+                            <td>{{ game.getGameScore() }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

@@ -40,19 +40,22 @@
 <table class="table table-hover table-striped">
     <thead class="table-dark">
         <th scope="col">Id</th>
-        <th scope="col">Catégorie</th>
+        <th scope="col">Date</th>
+        <th scope="col">{%trans%}Catégorie{%endtrans%}</th>
         <th scope="col">Score</th>
     </thead>
     <tbody>
-        {% for game in user.getGames()|slice (0,10) %}
+        {% for game in user.getGames()|slice (user.getGames()|length-10,user.getGames()|length) %}
         <tr>
-            <td scope="row">{{ game.getId() }} </td>
+            <td scope="row"><a href="/game/{{game.getID()}}">{{ game.getId() }} </a></td>
+            <td scope="row">{{game.getPlayedOn().format('Y-m-d H:i:s')}}</td>
             <td scope="row">
                 {%set cats= game.getCategory()|split('-') %}
                 {% for c in cats  %}
                 {{c}}
                 {%endfor%}
             </td>
+            
             <td scope="row">{{ game.getTotalScore() }} </td>
         </tr>
         {% endfor %}
