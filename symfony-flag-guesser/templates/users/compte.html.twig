@@ -37,17 +37,22 @@
 <hr>
 <br>
 <h2>{% trans %}Historique des 10 dernières parties{% endtrans %}</h2>
-<table class="table table-hover">
-    <thead>
+<table class="table table-hover table-striped">
+    <thead class="table-dark">
         <th scope="col">Id</th>
         <th scope="col">Catégorie</th>
         <th scope="col">Score</th>
     </thead>
     <tbody>
-        {% for game in user.getGames()|slice (1,10) %}
-        <tr class="table-active">
+        {% for game in user.getGames()|slice (0,10) %}
+        <tr>
             <td scope="row">{{ game.getId() }} </td>
-            <td scope="row">{{ game.getCategory() }} </td>
+            <td scope="row">
+                {%set cats= game.getCategory()|split('-') %}
+                {% for c in cats  %}
+                {{c}}
+                {%endfor%}
+            </td>
             <td scope="row">{{ game.getTotalScore() }} </td>
         </tr>
         {% endfor %}
