@@ -43,6 +43,26 @@ class FlagRepository extends ServiceEntityRepository
         return $query->getResult();
         // return $this->findAll();
     }
+    /**
+     * @return Flag[]
+     */
+    public function findCarouselFlags(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $numbers = range(0, 304);
+        shuffle($numbers);
+        $randoms = array_slice($numbers, 0, 10);
+     
+        // returns an array of Flags objects
+        return $this->createQueryBuilder('f')
+            ->where('f.id IN (:randoms)')
+            ->setParameter('randoms', $randoms)
+            ->getQuery()
+            ->getResult()
+        ;
+        
+    }
     // /**
     //  * @return Flag[] Returns an array of Flag objects
     //  */

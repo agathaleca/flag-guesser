@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
 use App\Repository\GameRepository;
+use App\Repository\FlagRepository;
 
 class SiteController extends AbstractController
 {
@@ -25,9 +26,11 @@ class SiteController extends AbstractController
     /**
      * @Route("/",name="home")
      */
-    public function home() {
+    public function home(FlagRepository $flagRepository) {
         // le fichier twig qu'on veut afficher
-        return $this->render('site/home.html.twig');
+        return $this->render('site/home.html.twig', [
+            'flags' => $flagRepository->findCarouselFlags()
+        ]);
     }
 
     // ici on crée la page "quiz" car la route est "/quiz"
@@ -46,9 +49,9 @@ class SiteController extends AbstractController
         $classement_europe = $gameRepository->findBestCategory('Europe-');
         $classement_asie = $gameRepository->findBestCategory('Asie-');
         $classement_amerique = $gameRepository->findBestCategory('Amérique-');
-        $classement_us = $gameRepository->findBestCategory('US States');
-        $classement_afrique = $gameRepository->findBestCategory('Africa-');
-        $classement_oceanie = $gameRepository->findBestCategory('Oceania-');
+        $classement_us = $gameRepository->findBestCategory('US States-');
+        $classement_afrique = $gameRepository->findBestCategory('Afrique-');
+        $classement_oceanie = $gameRepository->findBestCategory('Oceanie-');
         $classement_world = $gameRepository->findBestCategory('Amérique-Europe-Asie-US States-Afrique-Oceanie-');
         // le fichier twig qu'on veut afficher
         return $this->render('site/scores.html.twig', [
