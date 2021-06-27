@@ -17,7 +17,13 @@
                 aria-expanded="false" aria-controls="Share-collapse">
                 <i class="fas fa-share"></i>{%trans%}Partager{%endtrans%}
             </a>
-            <div class="collapse m-3" id="Share-collapse">
+            {% if user is not null %}
+                <a href="/flag/{{cat}}/{{user.getPseudo}}" class="btn btn-primary"><i class="fas fa-play"></i>{%trans%} Rejouer {%endtrans%}</a>
+            {%else%}
+                <a href="/flag/{{cat}}/anon" class="btn btn-primary"><i class="fas fa-play"></i>{%trans%} Rejouer
+                {%endtrans%}</a>
+                {%endif%}
+                <div class="collapse m-3" id="Share-collapse">
                 <div class="card">
                     <div class="card-header">
                         <p>{%trans%}Donne ce lien à tes amis pour qu'ils aient accès au recap de cette partie
