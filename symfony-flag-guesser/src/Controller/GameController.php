@@ -21,6 +21,25 @@ class GameController extends AbstractController
 
         $quiz =  $gameRepository->findGameById($id_game);
         $current_question = $quiz->getCurrentQuestion();
+
+        // test pour valentin
+        if ($current_question==null) {
+            $score = $quiz->getTotalScore();
+            $quiz->setGameScore($score);
+            $em->flush();
+            $classement = $gameRepository->findBestCategory($quiz->getCategory());
+            $temps_moyen = $quiz->getMoyTemps();
+            return $this->render('game/recap.html.twig', [
+                "question_list" => $quiz->getQuestions(),
+                "id_game" => $quiz->getId(),
+                "game_score" => $score,
+                "classement" => $classement,
+                "temps_moyen" => $temps_moyen,
+                "cat" => $quiz->getCategory(),
+                "user" => $quiz->getPlayedBy()
+            ]);
+        }
+
         // si la réponse est la bonne 
         // réponse sans les "-"
         if ($request->getSession()->get('_locale')=='fr') {
@@ -115,6 +134,7 @@ class GameController extends AbstractController
             $current_question->setTimeAnswered(new \Datetime());
             // on fixe le score de la question 
             $t = $current_question->getTimeAnswered()->diff($current_question->getTimeAsked())->s;
+            var_dump($t);
             if ($t<=15) {
                 // maj de la bdd
                 // on retourne la page avec la question actuelle (inchangée) pour retry
