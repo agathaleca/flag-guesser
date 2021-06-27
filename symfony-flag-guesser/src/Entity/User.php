@@ -9,13 +9,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\EquatableInterface;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity("pseudo")
  * @UniqueEntity("mail")
  */
-class User implements UserInterface, PasswordAuthenticatedUserInterface, EquatableInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @ORM\Id
@@ -53,12 +52,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Equatab
     /**
      * @ORM\OneToMany(targetEntity=Game::class, mappedBy="played_by")
      */
-    private $games;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $locale; 
+    private $games; 
     
     public function __construct()
     {
@@ -231,28 +225,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Equatab
         }
         return $max_score;
     }
-
-    public function getLocale(): ?string
-    {
-        return $this->locale;
-    }
-
-    public function setLocale(string $locale): self
-    {
-        $this->locale = $locale;
-
-        return $this;
-    }
-
-    public function isEqualTo(UserInterface $user)
-    {
-        if ($user instanceof self)
-        {
-            if ($user->getLocale() != $this->locale) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 }

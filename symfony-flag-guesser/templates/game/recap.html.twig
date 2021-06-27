@@ -15,12 +15,12 @@
                 {%trans%}Temps moyen de réponse : {%endtrans%} {{ temps_moyen }} {%trans%}secondes{%endtrans%}</p>
             <a class="btn btn-success" data-bs-toggle="collapse" href="#Share-collapse" role="button"
                 aria-expanded="false" aria-controls="Share-collapse">
-                <i class="fas fa-share"></i>{%trans%}Partager{%endtrans%}
+                <i class="fas fa-share me-2"></i>{%trans%}Partager{%endtrans%}
             </a>
             {% if user is not null %}
-                <a href="/flag/{{cat}}/{{user.getPseudo}}" class="btn btn-primary"><i class="fas fa-play"></i>{%trans%} Rejouer {%endtrans%}</a>
+                <a href="/flag/{{cat}}/{{user.getPseudo}}" class="btn btn-primary"><i class="fas fa-play me-2"></i>{%trans%} Rejouer {%endtrans%}</a>
             {%else%}
-                <a href="/flag/{{cat}}/anon" class="btn btn-primary"><i class="fas fa-play"></i>{%trans%} Rejouer
+                <a href="/flag/{{cat}}/anon" class="btn btn-primary"><i class="fas fa-play me-2"></i>{%trans%} Rejouer
                 {%endtrans%}</a>
                 {%endif%}
                 <div class="collapse m-3" id="Share-collapse">
