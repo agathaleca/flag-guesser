@@ -46,19 +46,20 @@
             <br><br><br>
             <h2>{%trans%}Classement{%endtrans%}</h2>
 
-            <table class="table table-hover">
-                <thead>
+            <table class="table table-hover table-striped">
+                <thead class="table-dark">
                     <tr>
                         <th scope="col">Pseudo</th>
                         <th scope="col">Score</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     {% for game in classement %}
-                    <tr class="table-active">
-                        <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
-                                game.getPlayedBy().getPseudo()}}</a></td>
+                    <tr>
+                        <td scope="row">
+                            {{
+                            game.getPlayedBy().getPseudo()}}
+                            <a class="btn btn-outline-secondary btn-sm" role="button" href="/compte/{{ game.getPlayedBy().getId() }}">{%trans%} Voir le profil {%endtrans%}</a></td>
                         <td>{{ game.getGameScore() }}</td>
                     </tr>
                     {% endfor %}
