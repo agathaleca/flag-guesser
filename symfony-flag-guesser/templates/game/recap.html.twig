@@ -17,13 +17,15 @@
                 aria-expanded="false" aria-controls="Share-collapse">
                 <i class="fas fa-share me-2"></i>{%trans%}Partager{%endtrans%}
             </a>
-            {% if user is not null %}
-            <a href="/flag/{{cat}}/{{user.getPseudo}}" class="btn btn-primary"><i class="fas fa-play me-2"></i>{%trans%}
+
+            {% if app.user is not null %}
+            <a href="/flag/{{cat}}/{{app.user.getPseudo}}" class="btn btn-primary"><i class="fas fa-play me-2"></i>{%trans%}
                 Rejouer {%endtrans%}</a>
-            {%else%}
+                {%else%}
             <a href="/flag/{{cat}}/anon" class="btn btn-primary"><i class="fas fa-play me-2"></i>{%trans%} Rejouer
                 {%endtrans%}</a>
             {%endif%}
+
             <div class="collapse m-3" id="Share-collapse">
                 <div class="card">
                     <div class="card-header">
