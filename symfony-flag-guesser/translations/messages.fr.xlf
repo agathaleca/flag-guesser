@@ -201,6 +201,26 @@
         <source>drapeaux</source>
         <target>drapeaux</target>
       </trans-unit>
+      <trans-unit id="JIHzo94" resname="Rejouer">
+        <source>Rejouer</source>
+        <target>Rejouer</target>
+      </trans-unit>
+      <trans-unit id="uGO9Yh6" resname="Voir le profil">
+        <source>Voir le profil</source>
+        <target>Voir le profil</target>
+      </trans-unit>
+      <trans-unit id="Kg4qfvT" resname="Voir la partie">
+        <source>Voir la partie</source>
+        <target>Voir la partie</target>
+      </trans-unit>
+      <trans-unit id="gY_Tj8V" resname="Les meilleurs scores en catégorie">
+        <source>Les meilleurs scores en catégorie</source>
+        <target>Les meilleurs scores en catégorie</target>
+      </trans-unit>
+      <trans-unit id="aKU0H8a" resname="Catégorie">
+        <source>Catégorie</source>
+        <target>Catégorie</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

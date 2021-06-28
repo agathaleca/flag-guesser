@@ -7,7 +7,7 @@
     <body>
       <trans-unit id="XSIXQIT" resname="quiz.page">
         <source>quiz.page</source>
-        <target>c'est la page de quiz, c'est la page de quiz, C'EST.. LA.. PAGE.. DE.. QUIZ... LA PAGE DE QUIZ.. C'EST LA PAGE DE QUIZ AVEC TOUT PLEIN DE DRAPEAUX QUI DEFILENT</target>
+        <target>This is the quiz page</target>
       </trans-unit>
       <trans-unit id="lEpNya5" resname="quiz.pick">
         <source>quiz.pick</source>
@@ -202,6 +202,26 @@
       <trans-unit id="R78jQD5" resname="drapeaux">
         <source>drapeaux</source>
         <target>flags</target>
+      </trans-unit>
+      <trans-unit id="JIHzo94" resname="Rejouer">
+        <source>Rejouer</source>
+        <target>Play again</target>
+      </trans-unit>
+      <trans-unit id="uGO9Yh6" resname="Voir le profil">
+        <source>Voir le profil</source>
+        <target>See profile</target>
+      </trans-unit>
+      <trans-unit id="Kg4qfvT" resname="Voir la partie">
+        <source>Voir la partie</source>
+        <target>See game</target>
+      </trans-unit>
+      <trans-unit id="gY_Tj8V" resname="Les meilleurs scores en catégorie">
+        <source>Les meilleurs scores en catégorie</source>
+        <target>Highest scores in category</target>
+      </trans-unit>
+      <trans-unit id="aKU0H8a" resname="Catégorie">
+        <source>Catégorie</source>
+        <target>Category</target>
       </trans-unit>
     </body>
   </file>
