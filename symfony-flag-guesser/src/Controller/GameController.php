@@ -42,7 +42,7 @@ class GameController extends AbstractController
 
         // si la réponse est la bonne 
         // réponse sans les "-"
-        if ($request->getSession()->get('_locale')=='fr') {
+        if ($request->getLocale()=='fr') {
         $true_answer_trans=str_replace(array(
                 '-',' ',
                 'à', 'â', 'ä', 'á', 'ã', 'å',

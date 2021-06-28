@@ -59,35 +59,10 @@ class UserController extends AbstractController
      */
     public function compte(GameRepository $gameRepository, UserRepository $userRepository, int $user_id, Request $request, TranslatorInterface $translator) {
         $user = $userRepository->getUserById($user_id);
-        
-        $form = $this->createFormBuilder(null)
-        ->add('locale', ChoiceType::class, [
-            'choices' => [
-                'Français' 		=> 'fr',
-                'English(US)'	=> 'en'
-            ]
-        ])
-        ->add('save', SubmitType::class)
-        ->getForm()
-        ;
 
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted()) {
-            $em = $this->getDoctrine()->getManager();
-            $locale = $form->getData()['locale'];
-            $user = $this->getUser();
-            $user->setLocale($locale);
-            $em->persist($user);
-            $em->flush();
-        }
-
-        
-        // $historique = $translator->trans('compte.historique');
         return $this->render('users/compte.html.twig', [
             'user' => $user,
             'best_games' => $gameRepository->findBestUser($user),
-            'form'		=> $form->createView(),
         ]);
     }
 
