@@ -26,6 +26,7 @@
               <th scope="col"> </th>
               <th scope="col">Pseudo</th>
               <th scope="col">Score</th>
+              <th scope="col"> </th>
             </tr>
           </thead>
           <tbody>
@@ -37,6 +38,7 @@
                   game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
+              <td><a class="btn btn-outline-secondary btn-sm" role="button" href="/game/{{ game.getId() }}">{%trans%} Voir la partie {%endtrans%}</a></td>
             </tr>
             {% set number = number + 1 %}
             {% endfor %}
@@ -62,18 +64,24 @@
           <caption>{%trans%}Les meilleurs scores en catégorie{%endtrans%} {%trans%}Europe{%endtrans%}</caption>
           <thead class="table-primary">
             <tr>
+                            <th scope="col"> </th>
               <th scope="col">Pseudo</th>
               <th scope="col">Score</th>
+                            <th scope="col"> </th>
             </tr>
           </thead>
           <tbody>
+            {% set number = 1 %}
             {% for game in classement_europe %}
             <tr class="table-active">
+              <td scope="row">#{{ number }}</td>
               <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
                   game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
+              <td><a class="btn btn-outline-secondary btn-sm" role="button" href="/game/{{ game.getId() }}">{%trans%} Voir la partie {%endtrans%}</a></td>
             </tr>
+            {% set number = number + 1 %}
             {% endfor %}
           </tbody>
         </table>
@@ -94,21 +102,27 @@
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
         <table class="table table-hover table-striped">
-          <caption>{%trans%}Les meilleurs scores en catégorie{%endtrans%} {%trans%}Europe{%endtrans%}</caption>
+          <caption>{%trans%}Les meilleurs scores en catégorie{%endtrans%} {%trans%}Asie{%endtrans%}</caption>
           <thead class="table-primary">
             <tr>
+                            <th scope="col"> </th>
               <th scope="col">Pseudo</th>
               <th scope="col">Score</th>
+                            <th scope="col"> </th>
             </tr>
           </thead>
           <tbody>
+            {% set number = 1 %}
             {% for game in classement_asie %}
             <tr class="table-active">
+              <td scope="row">#{{ number }}</td>
               <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
                   game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
+              <td><a class="btn btn-outline-secondary btn-sm" role="button" href="/game/{{ game.getId() }}">{%trans%} Voir la partie {%endtrans%}</a></td>
             </tr>
+            {% set number = number + 1 %}
             {% endfor %}
           </tbody>
         </table>
@@ -132,18 +146,24 @@
           <caption>{%trans%}Les meilleurs scores en catégorie{%endtrans%} {%trans%}Amérique{%endtrans%}</caption>
           <thead class="table-primary">
             <tr>
+                            <th scope="col"> </th>
               <th scope="col">Pseudo</th>
               <th scope="col">Score</th>
+                            <th scope="col"> </th>
             </tr>
           </thead>
           <tbody>
+            {% set number = 1 %}
             {% for game in classement_amerique %}
             <tr class="table-active">
+              <td scope="row">#{{ number }}</td>
               <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
                   game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
+              <td><a class="btn btn-outline-secondary btn-sm" role="button" href="/game/{{ game.getId() }}">{%trans%} Voir la partie {%endtrans%}</a></td>
             </tr>
+            {% set number = number + 1 %}
             {% endfor %}
           </tbody>
         </table>
@@ -167,18 +187,24 @@
           <caption>{%trans%}Les meilleurs scores en catégorie{%endtrans%} {%trans%}Afrique{%endtrans%}</caption>
           <thead class="table-primary">
             <tr>
+                            <th scope="col"> </th>
               <th scope="col">Pseudo</th>
               <th scope="col">Score</th>
+                            <th scope="col"> </th>
             </tr>
           </thead>
           <tbody>
+            {% set number = 1 %}
             {% for game in classement_afrique %}
             <tr class="table-active">
+              <td scope="row">#{{ number }}</td>
               <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
                   game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
+              <td><a class="btn btn-outline-secondary btn-sm" role="button" href="/game/{{ game.getId() }}">{%trans%} Voir la partie {%endtrans%}</a></td>
             </tr>
+            {% set number = number + 1 %}
             {% endfor %}
           </tbody>
         </table>
@@ -202,18 +228,24 @@
           <caption>{%trans%}Les meilleurs scores en catégorie{%endtrans%} {%trans%}Océanie{%endtrans%}</caption>
           <thead class="table-primary">
             <tr>
+                            <th scope="col"> </th>
               <th scope="col">Pseudo</th>
               <th scope="col">Score</th>
+                            <th scope="col"> </th>
             </tr>
           </thead>
           <tbody>
+            {% set number = 1 %}
             {% for game in classement_oceanie %}
             <tr class="table-active">
+              <td scope="row">#{{ number }}</td>
               <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
                   game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
+              <td><a class="btn btn-outline-secondary btn-sm" role="button" href="/game/{{ game.getId() }}">{%trans%} Voir la partie {%endtrans%}</a></td>
             </tr>
+            {% set number = number + 1 %}
             {% endfor %}
           </tbody>
         </table>
@@ -237,18 +269,24 @@
           <caption>{%trans%}Les meilleurs scores en catégorie{%endtrans%} {%trans%}US States{%endtrans%}</caption>
           <thead class="table-primary">
             <tr>
+                            <th scope="col"> </th>
               <th scope="col">Pseudo</th>
               <th scope="col">Score</th>
+                            <th scope="col"> </th>
             </tr>
           </thead>
           <tbody>
+            {% set number = 1 %}
             {% for game in classement_us %}
             <tr class="table-active">
+              <td scope="row">#{{ number }}</td>
               <td scope="row"><a href="/compte/{{ game.getPlayedBy().getId() }}"> {{
                   game.getPlayedBy().getPseudo()}}</a>
               </td>
               <td>{{ game.getGameScore() }}</td>
+              <td><a class="btn btn-outline-secondary btn-sm" role="button" href="/game/{{ game.getId() }}">{%trans%} Voir la partie {%endtrans%}</a></td>
             </tr>
+            {% set number = number + 1 %}
             {% endfor %}
           </tbody>
         </table>
