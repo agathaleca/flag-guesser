@@ -40,7 +40,7 @@
                     <ul class="navbar-nav ml-auto p-2">
                         {% for locale in locales|filter (locale => locale != app.request.locale) -%}
                             <li class="nav-item">
-                                <a class="btn btn-warning me-3" href="{{ path('changeLocale', {'locale': locale}) }}"> {{ locale }} </a>
+                                <a class="btn btn-warning me-2" href="{{ path('changeLocale', {'locale': locale}) }}"> {{ locale }} </a>
                             </li>
                         {% endfor %}
                         

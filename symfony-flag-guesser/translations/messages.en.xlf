@@ -15,7 +15,7 @@
       </trans-unit>
       <trans-unit id="5QrkIcg" resname="Bienvenue sur le site">
         <source>Bienvenue sur le site</source>
-        <target>Welcome to FLAGGUESSER !</target>
+        <target>Welcome to FLAG GUESSER !</target>
       </trans-unit>
       <trans-unit id="1tLc0AO" resname="compte.historique">
         <source>compte.historique</source>
@@ -87,7 +87,7 @@
       </trans-unit>
       <trans-unit id="2exxMrG" resname="Bienvenue sur le site !">
         <source>Bienvenue sur le site !</source>
-        <target>Welcome to the website</target>
+        <target>Welcome to FLAG GUESSER !</target>
       </trans-unit>
       <trans-unit id="z7GsDIB" resname="Inscription">
         <source>Inscription</source>
@@ -222,6 +222,22 @@
       <trans-unit id="aKU0H8a" resname="Catégorie">
         <source>Catégorie</source>
         <target>Category</target>
+      </trans-unit>
+      <trans-unit id="fVYu0Oh" resname="Répondez le plus rapidement possible à &lt;b&gt;10 questions&lt;/b&gt;">
+        <source>Répondez le plus rapidement possible à &lt;b&gt;10 questions&lt;/b&gt;</source>
+        <target><![CDATA[Answer <b>10 questions</b> as fast as possible]]></target>
+      </trans-unit>
+      <trans-unit id="MkZpd7_" resname="Jouez dans &lt;b&gt;différentes catégories&lt;/b&gt; : par continent ou dans le monde entier">
+        <source>Jouez dans &lt;b&gt;différentes catégories&lt;/b&gt; : par continent ou dans le monde entier</source>
+        <target><![CDATA[Play in  <b>different categories</b> : pick a continent or try the world map]]></target>
+      </trans-unit>
+      <trans-unit id="ZYtJV52" resname="Vous avez &lt;b&gt;15 secondes&lt;/b&gt; pour trouver à quel pays correspond chaque drapeau">
+        <source>Vous avez &lt;b&gt;15 secondes&lt;/b&gt; pour trouver à quel pays correspond chaque drapeau</source>
+        <target><![CDATA[You have <b>15 seconds</b> to find out which country correponds to the flag]]></target>
+      </trans-unit>
+      <trans-unit id="TTsQiNb" resname="Inscrivez-vous pour vous mesurer aux autres membres et dominez le &lt;b&gt;classement&lt;/b&gt;">
+        <source>Inscrivez-vous pour vous mesurer aux autres membres et dominez le &lt;b&gt;classement&lt;/b&gt;</source>
+        <target><![CDATA[Sign up to challenge other players and reach the top of the <b>ranking</b>]]></target>
       </trans-unit>
     </body>
   </file>
