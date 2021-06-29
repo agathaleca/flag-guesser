@@ -70,19 +70,11 @@
 
     var offset = 0;
     function calcOffset() {
-        // var xmlhttp = new XMLHttpRequest();
-        // xmlhttp.open("GET", "./{{id_game}}", false);
-        // xmlhttp.send();
-        // var dateStr = xmlhttp.getResponseHeader('Date');
-        // console.log(dateStr);
         var now = new Date;
         var utc_timestamp = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),
             now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
         var localMillisUTC = Date.parse(new Date().toUTCString());
-        // console.log('utc_timestamp=' + utc_timestamp);
-        // console.log('localMillisUTC=' + localMillisUTC);
         offset = utc_timestamp - localMillisUTC;
-        // console.log('offset=' + offset);
         return offset;
     }
 
@@ -90,29 +82,21 @@
         var date = new Date();
         date.setTime(date.getTime() + calcOffset());
         date = Date.parse(date.toString());
-        // console.log(date)
         return date;
     }
     ;
     var bar = document.getElementById('bar');
     var width = "width: ";
     var countdown = Date.parse("{{ current_question.getTimeAskedString() }}");
-    // METHODE SETTIMEOUT
 
     function interval() {
         var utc_timestamp = getServerTime();
-        // console.log('hi ! it is ' + utc_timestamp)
-        // console.log("countdown =" + countdown);
-        // console.log(utc_timestamp-countdown);
         var final = (utc_timestamp - countdown).toString().slice(2, 4);
-        // console.log('final' + final);
         var temps = 100 - final * 100 / 15;
         var temp = width.concat(temps);
         var temp = temp.concat('%');
-        //console.log(temp);
         bar.style = temp;
         if (temps <= 0) {
-            // clearTimeout(intervalID);
             reroute();
         }
         else {

@@ -36,7 +36,6 @@
 
 <div class="container-xl my-5" id="maps">
     <h2 class='display-4'>{% trans %}quiz.pick{% endtrans %}</h2>
-
     <div class="row gy-3">
         <div class="d-grid gap-2 col-4 mx-auto">
             <input type="checkbox" class="btn-check" id="btncheck1" name="Amérique" autocomplete="off">
@@ -63,7 +62,6 @@
                 <p class="h3 fw-bold" id='continent'>{%trans%}Asie{%endtrans%}</p>
             </label>
         </div>
-
         <div class="d-grid gap-2 col-4 mx-auto">
             <input type="checkbox" class="btn-check" id="btncheck4" name="US States" autocomplete="off">
             <label class="btn-us  btn-outline-success" id='choice' id='us states' for="btncheck4">
@@ -119,12 +117,10 @@
     }
     function checkAll() {
         check();
-        // reassign click event handler
         this.onclick = uncheckAll;
     }
     function uncheckAll() {
         check(false);
-        // reassign click event handler
         this.onclick = checkAll;
     }
     function myFunction($user_pseudo = "anon") {
@@ -139,15 +135,12 @@
     function getCheckedBoxes() {
         var checkboxes = document.querySelectorAll('input[class="btn-check"]');
         var checkboxesChecked = "";
-        // loop over them all
         for (var i = 0; i < checkboxes.length; i++) {
-            // And stick the checked ones onto an array...
             if (checkboxes[i].checked) {
                 checkboxesChecked = checkboxesChecked.concat(checkboxes[i].name);
                 checkboxesChecked = checkboxesChecked.concat("-");
             }
         }
-        // Return the array if it is non-empty, or null
         return checkboxesChecked.length > 0 ? checkboxesChecked : null;
     }
 
