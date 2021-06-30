@@ -8,16 +8,19 @@ An online quiz to test your flags knowledge.
 On Linux :
 Please make sure you have [Php 7.4.9 or greater](https://www.php.net), [MySQL](https://www.mysql.com/) and the latest version of [composer](https://getcomposer.org/) properly installed.  
 
-* You can verify by running
-```php -v```
-```composer -V```
+* You can verify by running  
+```php -v
+composer -V
+```
 
 * Clone this project.  
 ```git clone git@github.com:LucasLev/flag-guesser.git```  
 
 * Move to flag-guesser/symfony-flag-guesser and install doctrine support.  
-```composer require symfony/orm-pack```  
-```composer require --dev symfony/maker-bundle```  
+```
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+```     
 
 * Then modify the database connection information in the flag-guesser/symfony-flag-guesser/env file.  
 db_name must be the name of the database that will be created and linked to the website.  
@@ -32,12 +35,14 @@ db_name must be the name of the database that will be created and linked to the 
 * On Windows : In your web browser, move to [phpmyadmin](http://localhost/phpmyadmin/) and import the flag-guesser/flagsDATAbase.csv file in the "flag" table of the created database.   
 On Linux : In your MySQL terminal, move to the database :  
 ```USE database_name;```  
-```LOAD data local infile ' [absolute path to flagssansutf.csv] '  
+```  
+LOAD data local infile ' [absolute path to flagssansutf.csv] '  
 into table flag  
 fields terminated by ','  
 enclosed by '"'  
 lines terminated by '\r\n'  
-ignore 1 rows; ```  
+ignore 1 rows; 
+```  
 
 * Then run symfony's php server. (You might need to install the runtime extension, follow symfony's instructions.)  
 ```php bin/console server:run```  
