@@ -30,7 +30,14 @@ db_name must be the name of the database that will be created and linked to the 
 ```php bin/console doctrine:migrations:migrate```  
 
 * On Windows : In your web browser, move to [phpmyadmin](http://localhost/phpmyadmin/) and import the flag-guesser/flagsDATAbase.csv file in the "flag" table of the created database.   
-On Linux :   
+On Linux : In your MySQL terminal, move to the database :  
+```USE database_name;```  
+```LOAD data local infile ' [absolute path to flagssansutf.csv] '  
+into table flag  
+fields terminated by ','  
+enclosed by '"'  
+lines terminated by '\r\n'  
+ignore 1 rows; ```  
 
 * Then run symfony's php server. (You might need to install the runtime extension, follow symfony's instructions.)  
 ```php bin/console server:run```  
