@@ -183,7 +183,12 @@ class Game
                 $brep +=1;
             }
         }
-        return (round($total_time/$brep,1));
+        if ($brep == 0){
+            return 0;
+        }
+        else {
+            return (round($total_time/$brep,1));
+        }
     }
 
 }
